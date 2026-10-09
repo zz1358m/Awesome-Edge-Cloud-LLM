@@ -1,0 +1,42 @@
+name: Suggest a paper or resource
+description: Add or correct an edge-cloud LLM/agent collaboration resource
+title: "[Paper] "
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Exact paper title
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Primary source and version
+      description: arXiv version, proceedings page, or official project
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Primary category
+      options:
+        - Skills, plans, and trajectories
+        - Routing and help-seeking
+        - Context and modality selection
+        - Personalization and knowledge transfer
+        - Collaborative and federated training
+        - Token-level collaborative decoding
+        - Adjacent idea
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Collaboration mechanism and exchanged content
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evaluation evidence and limits
+      description: Include hardware, benchmark, network realism, and measured costs where available
+  - type: input
+    id: code
+    attributes:
+      label: Author code or dataset link and supporting source

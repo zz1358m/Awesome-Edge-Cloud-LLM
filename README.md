@@ -1,0 +1,119 @@
+# Awesome Edge–Cloud LLM & Agent Collaboration
+
+**English** | [简体中文](README.zh-CN.md)
+
+A curated collection of **edge–cloud collaboration for LLMs and agents**, organized by what is optimized: execution, guidance, context, personalization, training, and decoding. A central question is what to exchange and how that exchange becomes reusable edge capability.
+
+**Coverage cutoff: 2026-10-09 · 15 papers · 13 core + 2 adjacent.** Dates refer to linked arXiv versions; initial submission dates are retained in the catalog. This is a focused reading list, not an exhaustive survey or a unified performance leaderboard.
+
+Many recent entries are preprints. Venue labels reflect author reports in arXiv/project pages. Code links are author-linked; “not located” does not mean unavailable. Reported results remain specific to the authors’ evaluation; real devices, server emulation, and wireless simulations must be distinguished.
+
+## Contents
+
+- [Skills, plans, and trajectory collaboration](#skills)
+- [Routing and help-seeking](#routing)
+- [Context and modality selection](#context)
+- [Personalization and knowledge transfer](#personalization)
+- [Collaborative and federated training](#training)
+- [Token-level collaborative decoding](#decoding)
+- [Adjacent ideas and transfer opportunities](#adjacent)
+- [Evaluation evidence and limits](docs/evidence.md)
+- [Research questions and evaluation](docs/research-agenda.md)
+- [Machine-readable catalog](data/papers.json) · [BibTeX](references.bib) · [Contributing](CONTRIBUTING.md)
+
+## Taxonomy
+
+| Optimization target | Typical decision | Examples |
+| --- | --- | --- |
+| Guidance | What structure and detail should the cloud return? | Co-Skill, EcoAgent |
+| Execution | When should a query or agent step use the cloud? | Hera, GAPG |
+| Context | Which modalities and observations are worth sending? | TMO, Co-Skill |
+| Capability | Which data and parameter components should adapt? | CDCDA-PLM, CIDERS |
+| Updates | Where does learning run, and which updates travel? | MobiLLM, FedKRSO, FedKSeed, pAirZero |
+| Tokens | How should drafting, verification, and recovery interact? | AceSpec, Speculation at a Distance |
+
+Categories are primary entry points, not mutually exclusive mechanisms: Co-Skill, for example, addresses both uploaded trajectories and downloaded guidance.
+
+## Suggested reading paths
+
+- Content and skills: **Co-Skill → EcoAgent → TMO**.
+- Long-horizon routing: **Hera → GAPG**.
+- Personalization: **CIDERS → CDCDA-PLM**.
+- Forward-only learning: **FedKSeed → pAirZero**, with **FedKRSO** as a first-order subspace comparison.
+- Decoding systems: **AceSpec → Speculation at a Distance**, checking both latency and throughput.
+
+<a id="skills"></a>
+
+## Skills, plans, and trajectory collaboration
+
+| Version date | Work | Contribution | Resources |
+| --- | --- | --- | --- |
+| 2026-09-17 · v2 | **Co-Skill** — [Co-Skill: A Collaborative Communication Framework for Skill Evolution](https://arxiv.org/abs/2609.16008v2) | Merges uploaded trajectory prefixes and progressively expands downloaded skill trees around edge execution failures. | [paper](https://arxiv.org/abs/2609.16008v2) · code not located · [evidence](docs/evidence.md#2609-16008) |
+| 2025-11-17 · v3 | **EcoAgent** — [EcoAgent: An Efficient Device-Cloud Collaborative Multi-Agent Framework for Mobile Automation](https://arxiv.org/abs/2505.05440v3) | Combines cloud planning with local observation, verification, concise screen summaries, and closed-loop feedback. | [paper](https://arxiv.org/abs/2505.05440v3) · [code](https://github.com/Yi-Biao/EcoAgent) · [evidence](docs/evidence.md#2505-05440) |
+
+<a id="routing"></a>
+
+## Routing and help-seeking
+
+| Version date | Work | Contribution | Resources |
+| --- | --- | --- | --- |
+| 2026-05-23 · v1 | **Hera** — [Hera: Learning Long-Horizon Coordination for Device-Cloud Collaborative LLM Agents](https://arxiv.org/abs/2605.24598v1) | Learns an external step coordinator with imitation learning followed by cost-aware RL over long-horizon outcomes. | [paper](https://arxiv.org/abs/2605.24598v1) · code not located · [evidence](docs/evidence.md#2605-24598) |
+| 2026-05-23 · v4 | **GAPG** — [Bridging On-Device and Cloud LLMs for Collaborative Reasoning: A Unified Methodology for Local Routing and Post-Training](https://arxiv.org/abs/2509.24050v4) | Post-trains the local model to reason and internally decide when to invoke cloud assistance using adaptive policy gradients. | [paper](https://arxiv.org/abs/2509.24050v4) · code not located · [evidence](docs/evidence.md#2509-24050) |
+
+<a id="context"></a>
+
+## Context and modality selection
+
+| Version date | Work | Contribution | Resources |
+| --- | --- | --- | --- |
+| 2026-07-10 · v5 | **TMO** — [Device-Cloud Collaborative LLM Inference with Multi-Modal, Multi-Task, Multi-Turn Conversations](https://arxiv.org/abs/2502.11007v5) | Jointly selects inference location and modality sources with resource-constrained RL; releases the M4A1 dataset. | [paper](https://arxiv.org/abs/2502.11007v5) · [code](https://github.com/liangqiyuan/TMO) · [evidence](docs/evidence.md#2502-11007) |
+
+<a id="personalization"></a>
+
+## Personalization and knowledge transfer
+
+| Version date | Work | Contribution | Resources |
+| --- | --- | --- | --- |
+| 2026-09-14 · v1 | **CIDERS** — [CIDERS: Cloud-Edge LLM Collaborative Learning via Accelerating Personalized Bilevel Optimization](https://arxiv.org/abs/2609.15664v1) | Couples cloud backbone knowledge transfer and local messenger personalization through bilevel optimization and consensus correction. | [paper](https://arxiv.org/abs/2609.15664v1) · code not located · [evidence](docs/evidence.md#2609-15664) |
+| 2026-01-27 · v2 | **CDCDA-PLM** — [Towards On-Device Personalization: Cloud-device Collaborative Data Augmentation for Efficient On-device Language Model](https://arxiv.org/abs/2508.21313v2) | Uses cloud-generated personalized augmentation of limited user histories to support on-device PEFT and later local inference. | [paper](https://arxiv.org/abs/2508.21313v2) · code not located · [evidence](docs/evidence.md#2508-21313) |
+
+<a id="training"></a>
+
+## Collaborative and federated training
+
+| Version date | Work | Contribution | Resources |
+| --- | --- | --- | --- |
+| 2026-04-14 · v1 | **pAirZero** — [Three Birds, One Stone: Solving the Communication-Memory-Privacy Trilemma in LLM Fine-tuning Over Wireless Networks with Zeroth-Order Optimization](https://arxiv.org/abs/2604.12401v1) | Combines zeroth-order updates and over-the-air aggregation with joint transmit-power, noise, and privacy-budget design. | [paper](https://arxiv.org/abs/2604.12401v1) · code not located · [evidence](docs/evidence.md#2604-12401) |
+| 2026-02-03 · v1 | **FedKRSO** — [FedKRSO: Communication and Memory Efficient Federated Fine-Tuning of Large Language Models](https://arxiv.org/abs/2602.03019v1) | Shares random subspaces and aggregates low-dimensional update accumulators; uses first-order projected gradients. | [paper](https://arxiv.org/abs/2602.03019v1) · code not located · [evidence](docs/evidence.md#2602-03019) |
+| 2025-02-27 · v1 | **MobiLLM** — [MobiLLM: Enabling LLM Fine-Tuning on the Mobile Device via Server Assisted Side Tuning](https://arxiv.org/abs/2502.20421v1) | Keeps a frozen backbone on the device and offloads side-network backpropagation through one-way quantized activation transfer. | [paper](https://arxiv.org/abs/2502.20421v1) · code not located · [evidence](docs/evidence.md#2502-20421) |
+| 2024-05-27 · v5 | **FedKSeed** — [Federated Full-Parameter Tuning of Billion-Sized Language Models with Communication Cost under 18 Kilobytes](https://arxiv.org/abs/2312.06353v5) | Enables federated full-parameter tuning with zeroth-order optimization, a finite seed pool, and scalar gradient communication. | [paper](https://arxiv.org/abs/2312.06353v5) · [code](https://github.com/alibaba/FederatedScope/tree/FedKSeed) · [evidence](docs/evidence.md#2312-06353) |
+
+<a id="decoding"></a>
+
+## Token-level collaborative decoding
+
+| Version date | Work | Contribution | Resources |
+| --- | --- | --- | --- |
+| 2026-09-05 · v2 | **Speculation at a Distance** — [Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off](https://arxiv.org/abs/2606.25091v2) | Analyzes when distributed speculation pays off under RTT constraints and emphasizes multi-tenant cloud capacity. | [paper](https://arxiv.org/abs/2606.25091v2) · code not located · [evidence](docs/evidence.md#2606-25091) |
+| 2026-09-02 · v1 | **AceSpec** — [AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference](https://arxiv.org/abs/2609.02514v1) | Precomputes local recovery branches and uses asymmetric index/sparse-distribution communication for speculative decoding. | [paper](https://arxiv.org/abs/2609.02514v1) · code not located · [evidence](docs/evidence.md#2609-02514) |
+
+<a id="adjacent"></a>
+
+## Adjacent ideas and transfer opportunities
+
+These works offer related ideas; they do not establish the corresponding LLM/agent edge–cloud transfer.
+
+| Version date | Work | Contribution | Resources |
+| --- | --- | --- | --- |
+| 2026-10-06 · v1 | **HintKD** — [HintKD: Hint Knowledge Distillation for Bandwidth-Constrained Cloud-Edge Inference](https://arxiv.org/abs/2610.08412v1) | Encodes teacher guidance as a codebook index interpreted by a student FiLM adapter. | [paper](https://arxiv.org/abs/2610.08412v1) · code not located · [evidence](docs/evidence.md#2610-08412) |
+| 2026-03-17 · v1 | **POaaS** — [POaaS: Minimal-Edit Prompt Optimization as a Service to Lift Accuracy and Cut Hallucinations on On-Device sLLMs](https://arxiv.org/abs/2603.16045v1) | Applies conservative minimal-edit prompt cleaning, paraphrasing, and fact addition under drift and length constraints. | [paper](https://arxiv.org/abs/2603.16045v1) · code not located · [evidence](docs/evidence.md#2603-16045) |
+
+## Related resources
+
+- [Awesome-Gradient-Free-LLMOpt](https://github.com/zz1358m/Awesome-Gradient-Free-LLMOpt) — a complementary ES/ZO reading list and inspiration for the collection format.
+
+## Maintenance
+
+Edit `data/papers.json`, then run `python scripts/render.py`; validate with `python scripts/render.py --check`. Issues and PRs for papers, author code, version updates, and real-device measurements are welcome. Source records accompany each entry; research proposals are kept separate.
+
+This collection uses the [MIT License](LICENSE). Linked papers, code, and datasets retain their own licenses.

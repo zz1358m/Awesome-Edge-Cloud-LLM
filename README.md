@@ -4,7 +4,7 @@
 
 A curated collection of **edge–cloud collaboration for LLMs and agents**, organized by what is optimized: execution, guidance, context, personalization, training, and decoding. A central question is what to exchange and how that exchange becomes reusable edge capability.
 
-**Coverage cutoff: 2026-10-09 · 15 papers · 13 core + 2 adjacent.** Dates refer to linked arXiv versions; initial submission dates are retained in the catalog. This is a focused reading list, not an exhaustive survey or a unified performance leaderboard.
+**Coverage cutoff: 2026-10-09 · 17 papers · 15 core + 2 adjacent.** Dates refer to linked arXiv versions; initial submission dates are retained in the catalog. This is a focused reading list, not an exhaustive survey or a unified performance leaderboard.
 
 Many recent entries are preprints. Venue labels reflect author reports in arXiv/project pages. Code links are author-linked; “not located” does not mean unavailable. Reported results remain specific to the authors’ evaluation; real devices, server emulation, and wireless simulations must be distinguished.
 
@@ -57,6 +57,7 @@ Categories are primary entry points, not mutually exclusive mechanisms: Co-Skill
 
 | Version date | Work | Contribution | Resources |
 | --- | --- | --- | --- |
+| 2026-10-05 · v3 | **OpenPhone** — [OpenPhone: Mobile Agentic Foundation Models](https://arxiv.org/abs/2510.22009v3) | Runs a 3B GUI agent tuned with SFT then GRPO on the device by default and hands the task to a cloud MLLM once periodic monitoring detects repeated actions, trajectory deviation, or inadequate action quality. | [paper](https://arxiv.org/abs/2510.22009v3) · [code](https://github.com/HKUDS/PhoneCLI) · [evidence](docs/evidence.md#2510-22009) |
 | 2026-05-23 · v1 | **Hera** — [Hera: Learning Long-Horizon Coordination for Device-Cloud Collaborative LLM Agents](https://arxiv.org/abs/2605.24598v1) | Learns an external step coordinator with imitation learning followed by cost-aware RL over long-horizon outcomes. | [paper](https://arxiv.org/abs/2605.24598v1) · code not located · [evidence](docs/evidence.md#2605-24598) |
 | 2026-05-23 · v4 | **GAPG** — [Bridging On-Device and Cloud LLMs for Collaborative Reasoning: A Unified Methodology for Local Routing and Post-Training](https://arxiv.org/abs/2509.24050v4) | Post-trains the local model to reason and internally decide when to invoke cloud assistance using adaptive policy gradients. | [paper](https://arxiv.org/abs/2509.24050v4) · code not located · [evidence](docs/evidence.md#2509-24050) |
 
@@ -94,6 +95,7 @@ Categories are primary entry points, not mutually exclusive mechanisms: Co-Skill
 
 | Version date | Work | Contribution | Resources |
 | --- | --- | --- | --- |
+| 2026-10-06 · v1 | **DySCo** — [DySCo: Dynamic Sharding for Collaborative Edge-Cloud LLM Inference with Depth-Synchronized Batching](https://arxiv.org/abs/2610.08268v1) | Splits one LLM at a per-session layer boundary, keeps KV caches with their shards, and batches sessions that enter the cloud at different depths by advancing them to the deepest cut and sharing the common suffix. | [paper](https://arxiv.org/abs/2610.08268v1) · [code](https://github.com/Large-scale-Sustainable-Computing-LSC/dysco-artifact) · [evidence](docs/evidence.md#2610-08268) |
 | 2026-09-05 · v2 | **Speculation at a Distance** — [Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off](https://arxiv.org/abs/2606.25091v2) | Analyzes when distributed speculation pays off under RTT constraints and emphasizes multi-tenant cloud capacity. | [paper](https://arxiv.org/abs/2606.25091v2) · code not located · [evidence](docs/evidence.md#2606-25091) |
 | 2026-09-02 · v1 | **AceSpec** — [AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference](https://arxiv.org/abs/2609.02514v1) | Precomputes local recovery branches and uses asymmetric index/sparse-distribution communication for speculative decoding. | [paper](https://arxiv.org/abs/2609.02514v1) · code not located · [evidence](docs/evidence.md#2609-02514) |
 

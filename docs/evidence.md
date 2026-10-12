@@ -167,3 +167,25 @@ The notes below summarize checked paper pages; they are not independent reproduc
 - **实验边界：** DeepSense 6G 波束预测、MNIST；迁移至 LLM/agent 仍是研究假设。
 - **Sources:** [metadata](https://arxiv.org/abs/2610.08412v1), [full text](https://arxiv.org/html/2610.08412v1). Checked 2026-10-09.
 
+<a id="2510-22009"></a>
+
+## OpenPhone
+
+- **Version:** 2026-10-05, v3; first submitted 2025-10-24.
+- **Status:** preprint.
+- **Exchange:** GUI state and execution history / cloud agent actions after the switch. / GUI 状态与执行历史 / 切换后云端 agent 的动作。
+- **Evidence:** AndroidLab online evaluation plus 25 custom tasks on four apps; model latency is measured with vLLM on one or two RTX 3090 GPUs, not on phones; in the collaboration analysis the cloud still performs about 65% of steps.
+- **实验边界：** AndroidLab 在线评测，另加四个 app 的 25 个自建任务；模型延迟用 vLLM 在一张或两张 RTX 3090 上测量，不是手机实测；协同分析中云端仍执行约 65% 的步骤。
+- **Sources:** [metadata](https://arxiv.org/abs/2510.22009v3), [full text](https://arxiv.org/html/2510.22009v3). Checked 2026-10-12.
+
+<a id="2610-08268"></a>
+
+## DySCo
+
+- **Version:** 2026-10-06, v1; first submitted 2026-10-06.
+- **Status:** preprint.
+- **Exchange:** Cut-layer hidden states / next-token IDs. / 切分层的 hidden state / 下一个 token ID。
+- **Evidence:** Single-edge runs pair a Jetson Orin (8 GB, over WAN) or datacenter GPUs with an RTX A6000 cloud; the multi-edge batching study runs all edge and cloud processes on one multi-GPU server, so it isolates scheduling from wide-area network variation.
+- **实验边界：** 单端实验用 Jetson Orin（8 GB，经 WAN）或数据中心 GPU 搭配 RTX A6000 云端；多端批处理实验的端侧和云端进程都跑在同一台多 GPU 服务器上，只隔离出调度行为，不含广域网波动。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.08268v1), [full text](https://arxiv.org/html/2610.08268v1). Checked 2026-10-12.
+

@@ -4,7 +4,7 @@
 
 收集 **LLM/Agent 端云协同** 的论文、代码与数据集，按“优化什么”分类，重点关注端云之间交换什么，以及这些内容如何转化为端侧可复用能力。
 
-**范围截至 2026-10-09 · 15 篇 · 13 篇核心工作 + 2 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
+**范围截至 2026-10-09 · 17 篇 · 15 篇核心工作 + 2 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
 
 多数近期工作为 preprint；录用信息采用作者在 arXiv/项目页的报告。代码仅收录论文关联的作者链接；“未定位”不等于不存在。收益以作者实验为准，真实设备、服务器模拟和无线仿真应分别理解。
 
@@ -57,6 +57,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-05 · v3 | **OpenPhone** — [OpenPhone: Mobile Agentic Foundation Models](https://arxiv.org/abs/2510.22009v3) | 默认由经 SFT 再 GRPO 调优的 3B 端侧 GUI agent 执行；定期监控发现重复动作、偏离预期轨迹或动作质量不足时，把任务切换给云端 MLLM。 | [paper](https://arxiv.org/abs/2510.22009v3) · [code](https://github.com/HKUDS/PhoneCLI) · [evidence](docs/evidence.md#2510-22009) |
 | 2026-05-23 · v1 | **Hera** — [Hera: Learning Long-Horizon Coordination for Device-Cloud Collaborative LLM Agents](https://arxiv.org/abs/2605.24598v1) | 外部协调器先模仿学习，再以长程任务结果与云调用成本做 RL，逐步选择端或云。 | [paper](https://arxiv.org/abs/2605.24598v1) · 代码未定位 · [evidence](docs/evidence.md#2605-24598) |
 | 2026-05-23 · v4 | **GAPG** — [Bridging On-Device and Cloud LLMs for Collaborative Reasoning: A Unified Methodology for Local Routing and Post-Training](https://arxiv.org/abs/2509.24050v4) | 通过自适应策略梯度联合训练端侧推理与内部求助决策。 | [paper](https://arxiv.org/abs/2509.24050v4) · 代码未定位 · [evidence](docs/evidence.md#2509-24050) |
 
@@ -94,6 +95,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-06 · v1 | **DySCo** — [DySCo: Dynamic Sharding for Collaborative Edge-Cloud LLM Inference with Depth-Synchronized Batching](https://arxiv.org/abs/2610.08268v1) | 按会话在某一层把同一个 LLM 切成端侧前缀和云端后缀，KV cache 留在各自的 shard 上；不同切分深度的会话先推进到最深的切点，再对共同的后缀层做批处理。 | [paper](https://arxiv.org/abs/2610.08268v1) · [code](https://github.com/Large-scale-Sustainable-Computing-LSC/dysco-artifact) · [evidence](docs/evidence.md#2610-08268) |
 | 2026-09-05 · v2 | **Speculation at a Distance** — [Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off](https://arxiv.org/abs/2606.25091v2) | 分析 RTT 约束下分布式 speculative decoding 的适用区间，强调多租户云端容量。 | [paper](https://arxiv.org/abs/2606.25091v2) · 代码未定位 · [evidence](docs/evidence.md#2606-25091) |
 | 2026-09-02 · v1 | **AceSpec** — [AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference](https://arxiv.org/abs/2609.02514v1) | 预先构造本地恢复分支，用上行索引与下行稀疏分布优化 speculative decoding 通信。 | [paper](https://arxiv.org/abs/2609.02514v1) · 代码未定位 · [evidence](docs/evidence.md#2609-02514) |
 

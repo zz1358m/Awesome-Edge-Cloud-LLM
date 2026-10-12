@@ -493,6 +493,66 @@
         "https://arxiv.org/html/2610.08412v1"
       ],
       "checked_on": "2026-10-09"
+    },
+    {
+      "name": "OpenPhone",
+      "arxiv_id": "2510.22009",
+      "version": 3,
+      "title": "OpenPhone: Mobile Agentic Foundation Models",
+      "authors": [
+        "Jiang, Yangqin",
+        "Huang, Chao"
+      ],
+      "first_submitted": "2025-10-24",
+      "version_date": "2026-10-05",
+      "category": "routing",
+      "scope": "core",
+      "summary": "Runs a 3B GUI agent tuned with SFT then GRPO on the device by default and hands the task to a cloud MLLM once periodic monitoring detects repeated actions, trajectory deviation, or inadequate action quality.",
+      "summary_zh": "默认由经 SFT 再 GRPO 调优的 3B 端侧 GUI agent 执行；定期监控发现重复动作、偏离预期轨迹或动作质量不足时，把任务切换给云端 MLLM。",
+      "exchange": "GUI state and execution history / cloud agent actions after the switch",
+      "exchange_zh": "GUI 状态与执行历史 / 切换后云端 agent 的动作",
+      "evidence": "AndroidLab online evaluation plus 25 custom tasks on four apps; model latency is measured with vLLM on one or two RTX 3090 GPUs, not on phones; in the collaboration analysis the cloud still performs about 65% of steps.",
+      "evidence_zh": "AndroidLab 在线评测，另加四个 app 的 25 个自建任务；模型延迟用 vLLM 在一张或两张 RTX 3090 上测量，不是手机实测；协同分析中云端仍执行约 65% 的步骤。",
+      "status": "preprint",
+      "code_url": "https://github.com/HKUDS/PhoneCLI",
+      "code_status": "author-linked",
+      "paper_url": "https://arxiv.org/abs/2510.22009v3",
+      "source_urls": [
+        "https://arxiv.org/abs/2510.22009v3",
+        "https://arxiv.org/html/2510.22009v3"
+      ],
+      "checked_on": "2026-10-12"
+    },
+    {
+      "name": "DySCo",
+      "arxiv_id": "2610.08268",
+      "version": 1,
+      "title": "DySCo: Dynamic Sharding for Collaborative Edge-Cloud LLM Inference with Depth-Synchronized Batching",
+      "authors": [
+        "Xu, Jingpo",
+        "Maliakel, Paul Joe",
+        "Brandic, Ivona",
+        "Ilager, Shashikant"
+      ],
+      "first_submitted": "2026-10-06",
+      "version_date": "2026-10-06",
+      "category": "decoding",
+      "scope": "core",
+      "summary": "Splits one LLM at a per-session layer boundary, keeps KV caches with their shards, and batches sessions that enter the cloud at different depths by advancing them to the deepest cut and sharing the common suffix.",
+      "summary_zh": "按会话在某一层把同一个 LLM 切成端侧前缀和云端后缀，KV cache 留在各自的 shard 上；不同切分深度的会话先推进到最深的切点，再对共同的后缀层做批处理。",
+      "exchange": "Cut-layer hidden states / next-token IDs",
+      "exchange_zh": "切分层的 hidden state / 下一个 token ID",
+      "evidence": "Single-edge runs pair a Jetson Orin (8 GB, over WAN) or datacenter GPUs with an RTX A6000 cloud; the multi-edge batching study runs all edge and cloud processes on one multi-GPU server, so it isolates scheduling from wide-area network variation.",
+      "evidence_zh": "单端实验用 Jetson Orin（8 GB，经 WAN）或数据中心 GPU 搭配 RTX A6000 云端；多端批处理实验的端侧和云端进程都跑在同一台多 GPU 服务器上，只隔离出调度行为，不含广域网波动。",
+      "status": "preprint",
+      "code_url": "https://github.com/Large-scale-Sustainable-Computing-LSC/dysco-artifact",
+      "code_status": "author-linked",
+      "paper_url": "https://arxiv.org/abs/2610.08268v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.08268v1",
+        "https://arxiv.org/html/2610.08268v1"
+      ],
+      "checked_on": "2026-10-12"
     }
   ]
 }

@@ -189,3 +189,47 @@ The notes below summarize checked paper pages; they are not independent reproduc
 - **实验边界：** 单端实验用 Jetson Orin（8 GB，经 WAN）或数据中心 GPU 搭配 RTX A6000 云端；多端批处理实验的端侧和云端进程都跑在同一台多 GPU 服务器上，只隔离出调度行为，不含广域网波动。
 - **Sources:** [metadata](https://arxiv.org/abs/2610.08268v1), [full text](https://arxiv.org/html/2610.08268v1). Checked 2026-10-12.
 
+<a id="2610-17560"></a>
+
+## EdgeWise
+
+- **Version:** 2026-10-13, v1; first submitted 2026-10-13.
+- **Status:** preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=w1bB3nAhvd)).
+- **Exchange:** Trajectory history (full or trimmed) for a delegated step / the cloud LLM's analysis and action for that step. / 被委托步骤所需的轨迹历史（完整或裁剪）/ 云端 LLM 为该步生成的分析与动作。
+- **Evidence:** Terminal-Bench 2.1 and SWE-ReBench with Qwen3.5-9B as the SLM and API-served frontier models as the cloud LLM; the main runs serve the SLM on A100 GPUs, and a separate deployment runs the self-delegation model on one NVIDIA DGX Spark calling a cloud API; reported cost is API cost, not device energy.
+- **实验边界：** 在 Terminal-Bench 2.1 和 SWE-ReBench 上评测，SLM 为 Qwen3.5-9B，云端 LLM 为 API 调用的前沿模型；主实验的 SLM 跑在 A100 上，另有一组部署实验把自委托模型放在单台 NVIDIA DGX Spark 上调用云端 API；报告的成本是 API 费用，不含设备能耗。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.17560v1), [full text](https://arxiv.org/html/2610.17560v1). Checked 2026-10-15.
+
+<a id="2610-17816"></a>
+
+## EC2-Bench
+
+- **Version:** 2026-10-13, v1; first submitted 2026-10-13.
+- **Status:** preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=xUfOKMx2hz)).
+- **Exchange:** Task instruction and execution history visible to the cloud / cloud-generated actions (delegation) or plans and suggestions (advisory). / 云端可见的任务指令与执行历史 / 云端生成的动作（委托）或计划与建议（咨询）。
+- **Evidence:** All configurations run in the OpenClaw runtime with Qwen3.5-2B/9B as current edge models, Qwen3.5-27B and Qwen3.7-Plus as proxies for stronger future edge models, and GLM-5.3 as the main cloud model; edge cost is estimated in FLOPs rather than measured on devices, and privacy exposure is judged by an LLM checked against 200 human labels.
+- **实验边界：** 全部配置在 OpenClaw 运行时中执行，端侧用 Qwen3.5-2B/9B 代表当前模型、Qwen3.5-27B 与 Qwen3.7-Plus 作为未来更强端侧模型的代理，云端主要用 GLM-5.3；端侧开销以 FLOPs 估算而非设备实测，隐私暴露由 LLM 判定，并用 200 条人工标注做了核对。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.17816v1), [full text](https://arxiv.org/html/2610.17816v1). Checked 2026-10-15.
+
+<a id="2604-17827"></a>
+
+## Local-First Intelligence
+
+- **Version:** 2026-10-10, v2; first submitted 2026-04-20.
+- **Status:** preprint.
+- **Exchange:** SLM-formulated information requests meant to omit private user details / LLM answers or clarification requests. / SLM 构造的、力求不含用户隐私的信息请求 / LLM 的回答或澄清请求。
+- **Evidence:** PrivQA built from six QA datasets plus zero-shot PUPA, AESLC, and SAMSum; SLMs are Qwen3-4B/8B and Llama 3B/8B, cloud LLMs include DeepSeek-R1-Distill-Llama-70B, Qwen3-235B-A22B, and Qwen3-Max; training uses 8×H20 GPUs, and latency is measured with Qwen3-8B on one RTX 4090 against a cloud API, not on a phone.
+- **实验边界：** PrivQA 由六个 QA 数据集构造，另在 PUPA、AESLC、SAMSum 上零样本评测；SLM 为 Qwen3-4B/8B 和 Llama 3B/8B，云端 LLM 包括 DeepSeek-R1-Distill-Llama-70B、Qwen3-235B-A22B 和 Qwen3-Max；训练用 8 张 H20，延迟用单张 RTX 4090 上的 Qwen3-8B 对接云端 API 测得，不是手机实测。
+- **Sources:** [metadata](https://arxiv.org/abs/2604.17827v2), [full text](https://arxiv.org/html/2604.17827v2). Checked 2026-10-15.
+
+<a id="2610-14209"></a>
+
+## SLM Interpreter
+
+- **Version:** 2026-10-09, v1; first submitted 2026-10-09.
+- **Status:** preprint.
+- **Exchange:** User request and, on failure, stack traces that can contain user content / the generated program. / 用户请求，以及失败时可能含有用户内容的 stack trace / 生成的程序。
+- **Evidence:** AppWorld Test Normal and Test Challenge with Qwen3.6-27B, Qwen3.5-122B-A10B, and Qwen3-Coder-Next as planners and Qwen3.5 SLMs up to 9B; all models are served with llama.cpp on A100 or V100 GPUs, so device cost is reported as token and context counts rather than latency or energy.
+- **实验边界：** 在 AppWorld 的 Test Normal 和 Test Challenge 上评测，规划模型为 Qwen3.6-27B、Qwen3.5-122B-A10B 和 Qwen3-Coder-Next，SLM 为不超过 9B 的 Qwen3.5；所有模型都用 llama.cpp 跑在 A100 或 V100 上，端侧开销以 token 与上下文长度报告，没有延迟或能耗实测。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.14209v1), [full text](https://arxiv.org/html/2610.14209v1). Checked 2026-10-15.
+

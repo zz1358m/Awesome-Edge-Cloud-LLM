@@ -4,7 +4,7 @@
 
 收集 **LLM/Agent 端云协同** 的论文、代码与数据集，按“优化什么”分类，重点关注端云之间交换什么，以及这些内容如何转化为端侧可复用能力。
 
-**范围截至 2026-10-09 · 17 篇 · 15 篇核心工作 + 2 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
+**范围截至 2026-10-13 · 21 篇 · 19 篇核心工作 + 2 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
 
 多数近期工作为 preprint；录用信息采用作者在 arXiv/项目页的报告。代码仅收录论文关联的作者链接；“未定位”不等于不存在。收益以作者实验为准，真实设备、服务器模拟和无线仿真应分别理解。
 
@@ -48,6 +48,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-09 · v1 | **SLM Interpreter** — [Should SLMs be in the Driver's Seat? A Study of Local Models as Interpreters in Cloud-Written Agent Programs](https://arxiv.org/abs/2610.14209v1) | 云端 LLM 为用户任务写一段在设备上运行的 Python 程序，程序只在需要解读用户数据的有界问题上通过普通函数调用本地 SLM；执行出错时把 stack trace 发回 LLM 重写，最多尝试五次。 | [paper](https://arxiv.org/abs/2610.14209v1) · 代码未定位 · [evidence](docs/evidence.md#2610-14209) |
 | 2026-09-17 · v2 | **Co-Skill** — [Co-Skill: A Collaborative Communication Framework for Skill Evolution](https://arxiv.org/abs/2609.16008v2) | 合并上传轨迹的公共前缀，并按端侧执行失败逐步细化下发的 skill tree。 | [paper](https://arxiv.org/abs/2609.16008v2) · 代码未定位 · [evidence](docs/evidence.md#2609-16008) |
 | 2025-11-17 · v3 | **EcoAgent** — [EcoAgent: An Efficient Device-Cloud Collaborative Multi-Agent Framework for Mobile Automation](https://arxiv.org/abs/2505.05440v3) | 云端规划，端侧观察与验证，上传简洁屏幕摘要，用反馈闭环触发调整。 | [paper](https://arxiv.org/abs/2505.05440v3) · [code](https://github.com/Yi-Biao/EcoAgent) · [evidence](docs/evidence.md#2505-05440) |
 
@@ -57,6 +58,9 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-13 · v1 | **EdgeWise** — [EdgeWise: Bringing Long-Horizon Agents to the Edge via Selective Cloud Delegation](https://arxiv.org/abs/2610.17560v1) | 端侧 SLM 作为长程 coding agent 任务的主求解者，只把选中的步骤交给云端 LLM；是否委托由外部 judge 决定，或由经过 SFT 和 step-level RL（对每个委托决策单独分配 credit）训练的 SLM 自己决定。 | [paper](https://arxiv.org/abs/2610.17560v1) · 代码未定位 · [evidence](docs/evidence.md#2610-17560) |
+| 2026-10-13 · v1 | **EC2-Bench** — [Empowering Edge Agents: A Systematic Analysis of Edge-Cloud Collaboration in LLM Agent Execution](https://arxiv.org/abs/2610.17816v1) | 构建 EC2-Bench：128 个可执行的数字工作区 agent 任务，从任务完成度、云端费用与端侧 FLOPs、标注的敏感信息被云端看到的比例三方面打分，并用它比较 query 路由、逐步路由、端侧主导的委托和端侧主导的咨询四种协同方式。 | [paper](https://arxiv.org/abs/2610.17816v1) · [code](https://github.com/OpenBMB/EC2-Bench) · [evidence](docs/evidence.md#2610-17816) |
+| 2026-10-10 · v2 | **Local-First Intelligence** — [Local-First Intelligence via Proactive SLM Collaborating with Feedback-Providing LLM](https://arxiv.org/abs/2604.17827v2) | 用 RL 训练端侧 SLM 在多轮中决定何时、以何种请求向云端 LLM 求助，云端 LLM 只经提示、可以回答或要求澄清；奖励综合答案质量、交互必要性、澄清反馈与隐私泄露惩罚，训练数据来自合成的隐私增强 QA 数据集 PrivQA。 | [paper](https://arxiv.org/abs/2604.17827v2) · 代码未定位 · [evidence](docs/evidence.md#2604-17827) |
 | 2026-10-05 · v3 | **OpenPhone** — [OpenPhone: Mobile Agentic Foundation Models](https://arxiv.org/abs/2510.22009v3) | 默认由经 SFT 再 GRPO 调优的 3B 端侧 GUI agent 执行；定期监控发现重复动作、偏离预期轨迹或动作质量不足时，把任务切换给云端 MLLM。 | [paper](https://arxiv.org/abs/2510.22009v3) · [code](https://github.com/HKUDS/PhoneCLI) · [evidence](docs/evidence.md#2510-22009) |
 | 2026-05-23 · v1 | **Hera** — [Hera: Learning Long-Horizon Coordination for Device-Cloud Collaborative LLM Agents](https://arxiv.org/abs/2605.24598v1) | 外部协调器先模仿学习，再以长程任务结果与云调用成本做 RL，逐步选择端或云。 | [paper](https://arxiv.org/abs/2605.24598v1) · 代码未定位 · [evidence](docs/evidence.md#2605-24598) |
 | 2026-05-23 · v4 | **GAPG** — [Bridging On-Device and Cloud LLMs for Collaborative Reasoning: A Unified Methodology for Local Routing and Post-Training](https://arxiv.org/abs/2509.24050v4) | 通过自适应策略梯度联合训练端侧推理与内部求助决策。 | [paper](https://arxiv.org/abs/2509.24050v4) · 代码未定位 · [evidence](docs/evidence.md#2509-24050) |

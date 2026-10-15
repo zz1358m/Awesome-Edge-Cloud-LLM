@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-09",
+  "cutoff": "2026-10-13",
   "papers": [
     {
       "name": "Co-Skill",
@@ -553,6 +553,148 @@
         "https://arxiv.org/html/2610.08268v1"
       ],
       "checked_on": "2026-10-12"
+    },
+    {
+      "name": "EdgeWise",
+      "arxiv_id": "2610.17560",
+      "version": 1,
+      "title": "EdgeWise: Bringing Long-Horizon Agents to the Edge via Selective Cloud Delegation",
+      "authors": [
+        "Shi, Zeru",
+        "Jiang, Jindong",
+        "Hachiuma, Ryo",
+        "Fu, Yonggan",
+        "Lee, Byung-Kwan",
+        "Belcak, Peter",
+        "Muralidharan, Saurav",
+        "Agarwal, Ayush",
+        "Tang, Ruixiang",
+        "Dantrey, Ambrish",
+        "Molchanov, Pavlo",
+        "Patney, Anjul",
+        "Radhakrishnan, Subhashree"
+      ],
+      "first_submitted": "2026-10-13",
+      "version_date": "2026-10-13",
+      "category": "routing",
+      "scope": "core",
+      "summary": "A local SLM is the primary solver for long-horizon coding-agent tasks and hands selected steps to a cloud LLM; delegation is decided either by an external judge or by the SLM itself after SFT plus step-level RL that assigns credit to individual delegation decisions.",
+      "summary_zh": "端侧 SLM 作为长程 coding agent 任务的主求解者，只把选中的步骤交给云端 LLM；是否委托由外部 judge 决定，或由经过 SFT 和 step-level RL（对每个委托决策单独分配 credit）训练的 SLM 自己决定。",
+      "exchange": "Trajectory history (full or trimmed) for a delegated step / the cloud LLM's analysis and action for that step",
+      "exchange_zh": "被委托步骤所需的轨迹历史（完整或裁剪）/ 云端 LLM 为该步生成的分析与动作",
+      "evidence": "Terminal-Bench 2.1 and SWE-ReBench with Qwen3.5-9B as the SLM and API-served frontier models as the cloud LLM; the main runs serve the SLM on A100 GPUs, and a separate deployment runs the self-delegation model on one NVIDIA DGX Spark calling a cloud API; reported cost is API cost, not device energy.",
+      "evidence_zh": "在 Terminal-Bench 2.1 和 SWE-ReBench 上评测，SLM 为 Qwen3.5-9B，云端 LLM 为 API 调用的前沿模型；主实验的 SLM 跑在 A100 上，另有一组部署实验把自委托模型放在单台 NVIDIA DGX Spark 上调用云端 API；报告的成本是 API 费用，不含设备能耗。",
+      "status": "preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=w1bB3nAhvd))",
+      "code_url": null,
+      "code_status": "not located in checked paper pages",
+      "paper_url": "https://arxiv.org/abs/2610.17560v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.17560v1",
+        "https://arxiv.org/html/2610.17560v1",
+        "https://openreview.net/forum?id=w1bB3nAhvd"
+      ],
+      "checked_on": "2026-10-15"
+    },
+    {
+      "name": "EC2-Bench",
+      "arxiv_id": "2610.17816",
+      "version": 1,
+      "title": "Empowering Edge Agents: A Systematic Analysis of Edge-Cloud Collaboration in LLM Agent Execution",
+      "authors": [
+        "Huang, Pengcheng",
+        "Liu, Zhenghao",
+        "Ren, Shixin",
+        "Yu, Shi",
+        "Yao, Sijia",
+        "Yan, Yukun",
+        "Xiao, Chaojun",
+        "Sun, Maosong"
+      ],
+      "first_submitted": "2026-10-13",
+      "version_date": "2026-10-13",
+      "category": "routing",
+      "scope": "core",
+      "summary": "Builds EC2-Bench, 128 executable digital-workspace agent tasks scored on task completion, cloud cost and edge FLOPs, and the share of annotated sensitive items visible to the cloud, and uses it to compare query routing, per-step routing, edge-controlled delegation, and edge-controlled advisory.",
+      "summary_zh": "构建 EC2-Bench：128 个可执行的数字工作区 agent 任务，从任务完成度、云端费用与端侧 FLOPs、标注的敏感信息被云端看到的比例三方面打分，并用它比较 query 路由、逐步路由、端侧主导的委托和端侧主导的咨询四种协同方式。",
+      "exchange": "Task instruction and execution history visible to the cloud / cloud-generated actions (delegation) or plans and suggestions (advisory)",
+      "exchange_zh": "云端可见的任务指令与执行历史 / 云端生成的动作（委托）或计划与建议（咨询）",
+      "evidence": "All configurations run in the OpenClaw runtime with Qwen3.5-2B/9B as current edge models, Qwen3.5-27B and Qwen3.7-Plus as proxies for stronger future edge models, and GLM-5.3 as the main cloud model; edge cost is estimated in FLOPs rather than measured on devices, and privacy exposure is judged by an LLM checked against 200 human labels.",
+      "evidence_zh": "全部配置在 OpenClaw 运行时中执行，端侧用 Qwen3.5-2B/9B 代表当前模型、Qwen3.5-27B 与 Qwen3.7-Plus 作为未来更强端侧模型的代理，云端主要用 GLM-5.3；端侧开销以 FLOPs 估算而非设备实测，隐私暴露由 LLM 判定，并用 200 条人工标注做了核对。",
+      "status": "preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=xUfOKMx2hz))",
+      "code_url": "https://github.com/OpenBMB/EC2-Bench",
+      "code_status": "author-linked",
+      "paper_url": "https://arxiv.org/abs/2610.17816v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.17816v1",
+        "https://arxiv.org/html/2610.17816v1",
+        "https://openreview.net/forum?id=xUfOKMx2hz"
+      ],
+      "checked_on": "2026-10-15"
+    },
+    {
+      "name": "Local-First Intelligence",
+      "arxiv_id": "2604.17827",
+      "version": 2,
+      "title": "Local-First Intelligence via Proactive SLM Collaborating with Feedback-Providing LLM",
+      "authors": [
+        "Zeng, Hang",
+        "Liu, Xiangyu",
+        "Hu, Yong",
+        "Niu, Chaoyue",
+        "Zhang, Jiarui",
+        "Tang, Shaojie",
+        "Wu, Fan",
+        "Chen, Guihai"
+      ],
+      "first_submitted": "2026-04-20",
+      "version_date": "2026-10-10",
+      "category": "routing",
+      "scope": "core",
+      "summary": "Trains an on-device SLM with RL to decide when and how to consult a cloud LLM over several turns, while the prompted LLM either answers or asks for clarification; the reward combines answer quality, interaction necessity, clarification feedback, and a privacy-leak penalty, with training data from a synthesized privacy-augmented QA set (PrivQA).",
+      "summary_zh": "用 RL 训练端侧 SLM 在多轮中决定何时、以何种请求向云端 LLM 求助，云端 LLM 只经提示、可以回答或要求澄清；奖励综合答案质量、交互必要性、澄清反馈与隐私泄露惩罚，训练数据来自合成的隐私增强 QA 数据集 PrivQA。",
+      "exchange": "SLM-formulated information requests meant to omit private user details / LLM answers or clarification requests",
+      "exchange_zh": "SLM 构造的、力求不含用户隐私的信息请求 / LLM 的回答或澄清请求",
+      "evidence": "PrivQA built from six QA datasets plus zero-shot PUPA, AESLC, and SAMSum; SLMs are Qwen3-4B/8B and Llama 3B/8B, cloud LLMs include DeepSeek-R1-Distill-Llama-70B, Qwen3-235B-A22B, and Qwen3-Max; training uses 8×H20 GPUs, and latency is measured with Qwen3-8B on one RTX 4090 against a cloud API, not on a phone.",
+      "evidence_zh": "PrivQA 由六个 QA 数据集构造，另在 PUPA、AESLC、SAMSum 上零样本评测；SLM 为 Qwen3-4B/8B 和 Llama 3B/8B，云端 LLM 包括 DeepSeek-R1-Distill-Llama-70B、Qwen3-235B-A22B 和 Qwen3-Max；训练用 8 张 H20，延迟用单张 RTX 4090 上的 Qwen3-8B 对接云端 API 测得，不是手机实测。",
+      "status": "preprint",
+      "code_url": null,
+      "code_status": "not located in checked paper pages",
+      "paper_url": "https://arxiv.org/abs/2604.17827v2",
+      "source_urls": [
+        "https://arxiv.org/abs/2604.17827v2",
+        "https://arxiv.org/html/2604.17827v2"
+      ],
+      "checked_on": "2026-10-15"
+    },
+    {
+      "name": "SLM Interpreter",
+      "arxiv_id": "2610.14209",
+      "version": 1,
+      "title": "Should SLMs be in the Driver's Seat? A Study of Local Models as Interpreters in Cloud-Written Agent Programs",
+      "authors": [
+        "Radovič, Boris",
+        "Canini, Marco",
+        "Pejović, Veljko"
+      ],
+      "first_submitted": "2026-10-09",
+      "version_date": "2026-10-09",
+      "category": "skills",
+      "scope": "core",
+      "summary": "The cloud LLM writes a Python program for the user's task that runs on the device, and the program calls a local SLM through an ordinary function only for bounded questions over user data; on failure the stack trace goes back to the LLM for a rewrite, up to five attempts.",
+      "summary_zh": "云端 LLM 为用户任务写一段在设备上运行的 Python 程序，程序只在需要解读用户数据的有界问题上通过普通函数调用本地 SLM；执行出错时把 stack trace 发回 LLM 重写，最多尝试五次。",
+      "exchange": "User request and, on failure, stack traces that can contain user content / the generated program",
+      "exchange_zh": "用户请求，以及失败时可能含有用户内容的 stack trace / 生成的程序",
+      "evidence": "AppWorld Test Normal and Test Challenge with Qwen3.6-27B, Qwen3.5-122B-A10B, and Qwen3-Coder-Next as planners and Qwen3.5 SLMs up to 9B; all models are served with llama.cpp on A100 or V100 GPUs, so device cost is reported as token and context counts rather than latency or energy.",
+      "evidence_zh": "在 AppWorld 的 Test Normal 和 Test Challenge 上评测，规划模型为 Qwen3.6-27B、Qwen3.5-122B-A10B 和 Qwen3-Coder-Next，SLM 为不超过 9B 的 Qwen3.5；所有模型都用 llama.cpp 跑在 A100 或 V100 上，端侧开销以 token 与上下文长度报告，没有延迟或能耗实测。",
+      "status": "preprint",
+      "code_url": null,
+      "code_status": "not located in checked paper pages",
+      "paper_url": "https://arxiv.org/abs/2610.14209v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.14209v1",
+        "https://arxiv.org/html/2610.14209v1"
+      ],
+      "checked_on": "2026-10-15"
     }
   ]
 }

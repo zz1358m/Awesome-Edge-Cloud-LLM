@@ -216,11 +216,11 @@ The notes below summarize checked paper pages; they are not independent reproduc
 ## Local-First Intelligence
 
 - **Version:** 2026-10-10, v2; first submitted 2026-04-20.
-- **Status:** preprint.
+- **Status:** preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=mo3S2ihVAe)).
 - **Exchange:** SLM-formulated information requests meant to omit private user details / LLM answers or clarification requests. / SLM 构造的、力求不含用户隐私的信息请求 / LLM 的回答或澄清请求。
 - **Evidence:** PrivQA built from six QA datasets plus zero-shot PUPA, AESLC, and SAMSum; SLMs are Qwen3-4B/8B and Llama 3B/8B, cloud LLMs include DeepSeek-R1-Distill-Llama-70B, Qwen3-235B-A22B, and Qwen3-Max; training uses 8×H20 GPUs, and latency is measured with Qwen3-8B on one RTX 4090 against a cloud API, not on a phone.
 - **实验边界：** PrivQA 由六个 QA 数据集构造，另在 PUPA、AESLC、SAMSum 上零样本评测；SLM 为 Qwen3-4B/8B 和 Llama 3B/8B，云端 LLM 包括 DeepSeek-R1-Distill-Llama-70B、Qwen3-235B-A22B 和 Qwen3-Max；训练用 8 张 H20，延迟用单张 RTX 4090 上的 Qwen3-8B 对接云端 API 测得，不是手机实测。
-- **Sources:** [metadata](https://arxiv.org/abs/2604.17827v2), [full text](https://arxiv.org/html/2604.17827v2). Checked 2026-10-15.
+- **Sources:** [metadata](https://arxiv.org/abs/2604.17827v2), [full text](https://arxiv.org/html/2604.17827v2). Checked 2026-10-19.
 
 <a id="2610-14209"></a>
 

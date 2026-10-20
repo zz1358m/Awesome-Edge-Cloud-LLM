@@ -14,6 +14,7 @@ CATEGORIES = [
     ('personalization', 'Personalization and knowledge transfer', '个性化与知识迁移'),
     ('training', 'Collaborative and federated training', '协同训练与联邦优化'),
     ('decoding', 'Token-level collaborative decoding', 'Token 级协同解码'),
+    ('embodied', 'Embodied and robot control across edge and cloud', '具身与机器人端云协同'),
     ('adjacent', 'Adjacent ideas and transfer opportunities', '邻近工作与迁移机会'),
 ]
 
@@ -47,11 +48,11 @@ def readme(data, zh=False):
     intro = (
         '# Awesome Edge–Cloud LLM & Agent Collaboration\n\n'
         '[English](README.md) | **简体中文**\n\n'
-        '收集 **LLM/Agent 端云协同** 的论文、代码与数据集，按“优化什么”分类，重点关注端云之间交换什么，以及这些内容如何转化为端侧可复用能力。\n\n'
+        '收集 **LLM/Agent 端云协同**（含机器人与具身 agent）的论文、代码与数据集，按“优化什么”分类，重点关注端云之间交换什么，以及这些内容如何转化为端侧可复用能力。\n\n'
         if zh else
         '# Awesome Edge–Cloud LLM & Agent Collaboration\n\n'
         '**English** | [简体中文](README.zh-CN.md)\n\n'
-        'A curated collection of **edge–cloud collaboration for LLMs and agents**, organized by what is optimized: execution, guidance, context, personalization, training, and decoding. A central question is what to exchange and how that exchange becomes reusable edge capability.\n\n'
+        'A curated collection of **edge–cloud collaboration for LLMs and agents**, including robots and other embodied agents, organized by what is optimized: execution, guidance, context, personalization, training, decoding, and embodied control. A central question is what to exchange and how that exchange becomes reusable edge capability.\n\n'
     )
     intro += (f'**范围截至 {data["cutoff"]} · {len(papers)} 篇 · {core} 篇核心工作 + {len(papers)-core} 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。\n\n' if zh else f'**Coverage cutoff: {data["cutoff"]} · {len(papers)} papers · {core} core + {len(papers)-core} adjacent.** Dates refer to linked arXiv versions; initial submission dates are retained in the catalog. This is a focused reading list, not an exhaustive survey or a unified performance leaderboard.\n\n')
     intro += ('多数近期工作为 preprint；录用信息采用作者在 arXiv/项目页的报告。代码仅收录论文关联的作者链接；“未定位”不等于不存在。收益以作者实验为准，真实设备、服务器模拟和无线仿真应分别理解。\n\n' if zh else 'Many recent entries are preprints. Venue labels reflect author reports in arXiv/project pages. Code links are author-linked; “not located” does not mean unavailable. Reported results remain specific to the authors’ evaluation; real devices, server emulation, and wireless simulations must be distinguished.\n\n')
@@ -67,11 +68,12 @@ def readme(data, zh=False):
         ('Capability','端侧能力','Which data and parameter components should adapt?','生成什么训练数据，适配哪些参数组件？','CDCDA-PLM, CIDERS'),
         ('Updates','训练协议','Where does learning run, and which updates travel?','训练放在哪里，传 activation、低维更新还是 scalar？','MobiLLM, FedKRSO, FedKSeed, pAirZero'),
         ('Tokens','协同解码','How should drafting, verification, and recovery interact?','draft、验证与 rejection 恢复如何协作？','AceSpec, Speculation at a Distance'),
+        ('Embodied','具身控制','How should perception, policy inference, and control be split between a robot and remote compute under delay and bandwidth limits?','机器人与远端算力之间如何划分感知、策略推理与控制，以应对时延与带宽限制？','CloudEdgeVLA, RoboECC, EcoVLA'),
     ]
     for en,cn,q,qcn,ex in taxonomy:
         intro += f'| {cn if zh else en} | {qcn if zh else q} | {ex} |\n'
     intro += ('\n分类是主入口，论文可以跨多个优化对象；例如 Co-Skill 同时涉及上传轨迹和下发指导。\n\n' if zh else '\nCategories are primary entry points, not mutually exclusive mechanisms: Co-Skill, for example, addresses both uploaded trajectories and downloaded guidance.\n\n')
-    intro += ('## 建议阅读顺序\n\n- 内容与 skill：**Co-Skill → EcoAgent → TMO**。\n- 长程 agent 路由：**Hera → GAPG**。\n- 个性化：**CIDERS → CDCDA-PLM**。\n- Forward-only 训练：**FedKSeed → pAirZero**，以 **FedKRSO** 作一阶子空间对照。\n- 解码系统：**AceSpec → Speculation at a Distance**，同时检查延迟与吞吐。\n\n' if zh else '## Suggested reading paths\n\n- Content and skills: **Co-Skill → EcoAgent → TMO**.\n- Long-horizon routing: **Hera → GAPG**.\n- Personalization: **CIDERS → CDCDA-PLM**.\n- Forward-only learning: **FedKSeed → pAirZero**, with **FedKRSO** as a first-order subspace comparison.\n- Decoding systems: **AceSpec → Speculation at a Distance**, checking both latency and throughput.\n\n')
+    intro += ('## 建议阅读顺序\n\n- 内容与 skill：**Co-Skill → EcoAgent → TMO**。\n- 长程 agent 路由：**Hera → GAPG**。\n- 个性化：**CIDERS → CDCDA-PLM**。\n- Forward-only 训练：**FedKSeed → pAirZero**，以 **FedKRSO** 作一阶子空间对照。\n- 解码系统：**AceSpec → Speculation at a Distance**，同时检查延迟与吞吐。\n- GUI agent 的上传内容：**CORE → PAAC → PrivacyGuard**。\n- 机器人：**CloudEdgeVLA → RoboECC → EcoVLA**，区分模拟时延与真实测试平台。\n\n' if zh else '## Suggested reading paths\n\n- Content and skills: **Co-Skill → EcoAgent → TMO**.\n- Long-horizon routing: **Hera → GAPG**.\n- Personalization: **CIDERS → CDCDA-PLM**.\n- Forward-only learning: **FedKSeed → pAirZero**, with **FedKRSO** as a first-order subspace comparison.\n- Decoding systems: **AceSpec → Speculation at a Distance**, checking both latency and throughput.\n- What GUI agents upload: **CORE → PAAC → PrivacyGuard**.\n- Robots: **CloudEdgeVLA → RoboECC → EcoVLA**, separating simulated delays from real testbeds.\n\n')
     for key,en,cn in CATEGORIES:
         intro += f'<a id="{key}"></a>\n\n## {cn if zh else en}\n\n'
         if key=='adjacent':

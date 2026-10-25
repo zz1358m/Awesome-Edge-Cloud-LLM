@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-18",
+  "cutoff": "2026-10-25",
   "papers": [
     {
       "name": "Co-Skill",
@@ -1070,15 +1070,16 @@
       "exchange_zh": "任务的数学改写或跨领域语义替身 / 针对替身任务的指导或代码，由本地映射回原任务",
       "evidence": "Read from the PDF because the HTML rendering is truncated; the local-SLM role is played by GPT-4o-mini, DeepSeek-V4-Flash, and a Qwen3 model, with task-intent inference and utility reported per task family against direct consultation, sensitive-value removal, and decoy baselines; no device hardware or latency is measured.",
       "evidence_zh": "因 HTML 版本不完整而阅读 PDF；本地 SLM 的角色由 GPT-4o-mini、DeepSeek-V4-Flash 和一个 Qwen3 模型扮演，按任务族报告任务意图推断与效用，对比直接咨询、去除敏感值和诱饵基线；没有设备硬件或延迟测量。",
-      "status": "preprint",
+      "status": "preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=1rBcnLE8ft))",
       "code_url": null,
       "code_status": "not located in checked paper pages",
       "paper_url": "https://arxiv.org/abs/2609.32642v1",
       "source_urls": [
         "https://arxiv.org/abs/2609.32642v1",
-        "https://arxiv.org/pdf/2609.32642v1"
+        "https://arxiv.org/pdf/2609.32642v1",
+        "https://openreview.net/forum?id=1rBcnLE8ft"
       ],
-      "checked_on": "2026-10-20"
+      "checked_on": "2026-10-25"
     },
     {
       "name": "Hybrid MAS",
@@ -1691,6 +1692,102 @@
         "https://arxiv.org/html/2603.19418v1"
       ],
       "checked_on": "2026-10-20"
+    },
+    {
+      "name": "HyCo",
+      "arxiv_id": "2610.21436",
+      "version": 2,
+      "title": "HyCo: Hybrid Drafting for Cost-Efficient Mobile-Cloud Speculative Decoding",
+      "authors": [
+        "Bae, Hanbin",
+        "Choi, Heejin",
+        "Lee, Joohyung",
+        "Choi, Byoung Jin",
+        "Park, Sangjun",
+        "Cho, Hoon-Young"
+      ],
+      "first_submitted": "2026-10-15",
+      "version_date": "2026-10-19",
+      "category": "decoding",
+      "scope": "core",
+      "summary": "Moves the cloud verifier's native multi-token-prediction head onto the phone NPU to draft a deep chain from verifier state returned after each round, and adds alternative branches with a single pass of an on-device SLM; an optional ε-threshold acceptance rule trades exact distribution preservation for longer accepted drafts.",
+      "summary_zh": "把云端验证模型自带的多 token 预测（MTP）头搬到手机 NPU 上，利用每轮验证后云端返回的状态起草较深的链，再用端侧 SLM 一次前向补充备选分支；可选的 ε 阈值接受规则以放弃严格保持分布为代价换取更长的接受长度。",
+      "exchange": "Draft token tree (token IDs and parent indices) / accepted tokens, bonus token, and the hidden state, input embedding, and KV entries the device-side MTP head needs",
+      "exchange_zh": "draft token 树（token ID 与父节点索引）/ 接受的 token、bonus token，以及端侧 MTP 头所需的 hidden state、输入 embedding 和 KV 条目",
+      "evidence": "Gemma 4 26B-A4B verifier on one RTX PRO 6000 cloud GPU, drafters on a Galaxy S26 Ultra NPU over commercial LTE/5G; single-client runs on Spec-Bench and 32K-token summarization; server GPU time per output token is the main cost metric, not loaded-service capacity or energy; the default ε rule is lossy and is evaluated separately from exact verification.",
+      "evidence_zh": "验证模型 Gemma 4 26B-A4B 跑在一张 RTX PRO 6000 云端 GPU 上，两个 drafter 跑在 Galaxy S26 Ultra 的 NPU 上，经商用 LTE/5G 连接；Spec-Bench 与 32K token 摘要上的单客户端实验；主要成本指标是每个输出 token 的服务器 GPU 时间，不是满载服务容量或能耗；默认的 ε 规则有损，与严格验证分开报告。",
+      "status": "preprint",
+      "code_url": null,
+      "code_status": "not located in checked paper pages",
+      "paper_url": "https://arxiv.org/abs/2610.21436v2",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.21436v2",
+        "https://arxiv.org/html/2610.21436v2"
+      ],
+      "checked_on": "2026-10-25"
+    },
+    {
+      "name": "CEMA-Router",
+      "arxiv_id": "2610.26171",
+      "version": 1,
+      "title": "CEMA-Router: Infrastructure-Aware Batch Routing for LLM Inference in Cloud-Edge Systems",
+      "authors": [
+        "Wang, Xijia",
+        "He, TianZhang",
+        "Goudarzi, Mohammad"
+      ],
+      "first_submitted": "2026-10-19",
+      "version_date": "2026-10-19",
+      "category": "routing",
+      "scope": "core",
+      "summary": "Routes each short batch of LLM requests jointly across cloud and edge node–model endpoints with a memetic search whose fitness combines retrieval-based per-prompt quality estimates, token cost, energy, and a queue-aware batch makespan, instead of deciding per query on quality and cost alone.",
+      "summary_zh": "把一个短时间窗内的 LLM 请求作为一批，联合分配到云端和边缘的各个节点–模型端点上；用 memetic 搜索求解，适应度综合基于检索的逐提示质量估计、token 成本、能耗和考虑排队的批完成时间，而不是只按质量与成本逐条路由。",
+      "exchange": "Whole requests dispatched to one cloud or edge endpoint / responses; the router consumes node profiles, backlog estimates, and profiled quality scores",
+      "exchange_zh": "整条请求派发到某个云端或边缘端点 / 返回结果；路由器使用节点画像、积压估计和离线测得的质量分数",
+      "evidence": "RouterBench traces mapped to a simulated five-tier cloud–edge profile, plus a six-node testbed of server GPUs labelled cloud (A100, V100) and edge (A40, A30) running 1.7B–14B models on GSM8K and MMLU; no phones or embedded boards; API price is zero in the testbed, so the deployed comparison covers quality, energy, and completion time; energy is estimated from power profiles.",
+      "evidence_zh": "一部分是把 RouterBench 轨迹映射到模拟的五档云边配置上；另一部分是六节点测试床，节点均为服务器 GPU，分别标为云端（A100、V100）和边缘（A40、A30），运行 1.7B–14B 模型，评测 GSM8K 与 MMLU；没有手机或嵌入式板卡；测试床中 API 价格为零，因此部署对比只涉及质量、能耗和完成时间；能耗由功率画像估算。",
+      "status": "preprint",
+      "code_url": null,
+      "code_status": "not located in checked paper pages",
+      "paper_url": "https://arxiv.org/abs/2610.26171v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.26171v1",
+        "https://arxiv.org/html/2610.26171v1"
+      ],
+      "checked_on": "2026-10-25"
+    },
+    {
+      "name": "SpecAgent",
+      "arxiv_id": "2610.21463",
+      "version": 1,
+      "title": "Trajectory-Level Speculation with Semantic Verification for Tool-Using Agents",
+      "authors": [
+        "Wang, Zilin",
+        "Liu, Yinhong",
+        "Chen, Chao",
+        "Liu, Qun",
+        "Guo, Zhijiang"
+      ],
+      "first_submitted": "2026-10-15",
+      "version_date": "2026-10-15",
+      "category": "skills",
+      "scope": "core",
+      "summary": "A weak model drafts agent steps while executing read-only tool calls and pauses at the first state-changing action; the strong model reviews the drafted segment in one prefill pass, commits the longest prefix it judges semantically valid, and repairs the first rejected step, so it mostly decodes short verdicts instead of every step.",
+      "summary_zh": "弱模型起草 agent 步骤，起草时直接执行只读工具调用，遇到第一个会改变环境状态的动作就暂停；强模型用一次 prefill 审阅这段草稿，提交其判为语义有效的最长前缀并修复第一个被拒的步骤，因此强模型主要只解码简短的判定，而不是每一步。",
+      "exchange": "Drafted trajectory segment with real read-only tool observations and a held state-changing action / verdict (accepted prefix length, reason, optional replacement step) or a repair turn",
+      "exchange_zh": "带真实只读工具观测、末尾挂起一个状态修改动作的轨迹草稿片段 / 判定（接受的前缀长度、理由、可选的替换步骤）或一轮修复",
+      "evidence": "Main experiments (τ²-Bench, AutomationBench, VitaBench) run both Qwen3.5-4B and Qwen3.5-397B-A17B on H20 servers, with memory traffic and FLOPs estimated from token counts; the edge–cloud setting is a separate MCP-Atlas run with the weak model on one local RTX 5090 and three cloud API strong models, where API cost and strong output tokens fall but wall time does not.",
+      "evidence_zh": "主实验（τ²-Bench、AutomationBench、VitaBench）中 Qwen3.5-4B 与 Qwen3.5-397B-A17B 都部署在 H20 服务器上，显存流量和 FLOPs 由 token 数估算；端云设置是单独的 MCP-Atlas 实验，弱模型跑在一张本地 RTX 5090 上，强模型为三个云端 API 模型，API 费用和强模型输出 token 下降，但端到端时间没有下降。",
+      "status": "preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=FgDfnkBEzf))",
+      "code_url": "https://github.com/LARK-AI-Lab/SpecAgent",
+      "code_status": "author-linked",
+      "paper_url": "https://arxiv.org/abs/2610.21463v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.21463v1",
+        "https://arxiv.org/html/2610.21463v1",
+        "https://openreview.net/forum?id=FgDfnkBEzf"
+      ],
+      "checked_on": "2026-10-25"
     }
   ]
 }

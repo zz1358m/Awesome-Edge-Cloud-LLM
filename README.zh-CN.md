@@ -4,7 +4,7 @@
 
 收集 **LLM/Agent 端云协同**（含机器人与具身 agent）的论文、代码与数据集，按“优化什么”分类，重点关注端云之间交换什么，以及这些内容如何转化为端侧可复用能力。
 
-**范围截至 2026-10-18 · 52 篇 · 46 篇核心工作 + 6 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
+**范围截至 2026-10-25 · 55 篇 · 49 篇核心工作 + 6 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
 
 多数近期工作为 preprint；录用信息采用作者在 arXiv/项目页的报告。代码仅收录论文关联的作者链接；“未定位”不等于不存在。收益以作者实验为准，真实设备、服务器模拟和无线仿真应分别理解。
 
@@ -52,6 +52,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-15 · v1 | **SpecAgent** — [Trajectory-Level Speculation with Semantic Verification for Tool-Using Agents](https://arxiv.org/abs/2610.21463v1) | 弱模型起草 agent 步骤，起草时直接执行只读工具调用，遇到第一个会改变环境状态的动作就暂停；强模型用一次 prefill 审阅这段草稿，提交其判为语义有效的最长前缀并修复第一个被拒的步骤，因此强模型主要只解码简短的判定，而不是每一步。 | [paper](https://arxiv.org/abs/2610.21463v1) · [code](https://github.com/LARK-AI-Lab/SpecAgent) · [evidence](docs/evidence.md#2610-21463) |
 | 2026-10-13 · v2 | **CoMIC** — [CoMIC: Collaborative Memory and Insights Circulation for Long-Horizon LLM Agents in Web Cloud-Edge Systems](https://arxiv.org/abs/2606.00756v2) | 端侧 Web agent 借助以子目标为单位的分层记忆在本地执行；云端 LLM 评审异步评估上传的子目标轨迹、筛选可复用经验，并按规范化子目标标识把指导分发回所有端侧 agent，全程不更新模型参数。 | [paper](https://arxiv.org/abs/2606.00756v2) · 代码未定位 · [evidence](docs/evidence.md#2606-00756) |
 | 2026-10-09 · v1 | **SLM Interpreter** — [Should SLMs be in the Driver's Seat? A Study of Local Models as Interpreters in Cloud-Written Agent Programs](https://arxiv.org/abs/2610.14209v1) | 云端 LLM 为用户任务写一段在设备上运行的 Python 程序，程序只在需要解读用户数据的有界问题上通过普通函数调用本地 SLM；执行出错时把 stack trace 发回 LLM 重写，最多尝试五次。 | [paper](https://arxiv.org/abs/2610.14209v1) · 代码未定位 · [evidence](docs/evidence.md#2610-14209) |
 | 2026-09-26 · v1 | **REBASE** — [REBASE: Device-Cloud Experience Coherence for GUI Agents Across App Updates](https://arxiv.org/abs/2609.32130v1) | 让手机 GUI agent 缓存的操作路径在应用更新后仍与云端副本一致：云端在新版本上重放，端侧执行前逐步校验，校验失败时逐级上传证据，直到云端返回按版本索引、可供整个设备群复用的补丁。 | [paper](https://arxiv.org/abs/2609.32130v1) · 代码未定位 · [evidence](docs/evidence.md#2609-32130) |
@@ -66,6 +67,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-19 · v1 | **CEMA-Router** — [CEMA-Router: Infrastructure-Aware Batch Routing for LLM Inference in Cloud-Edge Systems](https://arxiv.org/abs/2610.26171v1) | 把一个短时间窗内的 LLM 请求作为一批，联合分配到云端和边缘的各个节点–模型端点上；用 memetic 搜索求解，适应度综合基于检索的逐提示质量估计、token 成本、能耗和考虑排队的批完成时间，而不是只按质量与成本逐条路由。 | [paper](https://arxiv.org/abs/2610.26171v1) · 代码未定位 · [evidence](docs/evidence.md#2610-26171) |
 | 2026-10-13 · v1 | **EdgeWise** — [EdgeWise: Bringing Long-Horizon Agents to the Edge via Selective Cloud Delegation](https://arxiv.org/abs/2610.17560v1) | 端侧 SLM 作为长程 coding agent 任务的主求解者，只把选中的步骤交给云端 LLM；是否委托由外部 judge 决定，或由经过 SFT 和 step-level RL（对每个委托决策单独分配 credit）训练的 SLM 自己决定。 | [paper](https://arxiv.org/abs/2610.17560v1) · 代码未定位 · [evidence](docs/evidence.md#2610-17560) |
 | 2026-10-13 · v1 | **EC2-Bench** — [Empowering Edge Agents: A Systematic Analysis of Edge-Cloud Collaboration in LLM Agent Execution](https://arxiv.org/abs/2610.17816v1) | 构建 EC2-Bench：128 个可执行的数字工作区 agent 任务，从任务完成度、云端费用与端侧 FLOPs、标注的敏感信息被云端看到的比例三方面打分，并用它比较 query 路由、逐步路由、端侧主导的委托和端侧主导的咨询四种协同方式。 | [paper](https://arxiv.org/abs/2610.17816v1) · [code](https://github.com/OpenBMB/EC2-Bench) · [evidence](docs/evidence.md#2610-17816) |
 | 2026-10-10 · v2 | **Local-First Intelligence** — [Local-First Intelligence via Proactive SLM Collaborating with Feedback-Providing LLM](https://arxiv.org/abs/2604.17827v2) | 用 RL 训练端侧 SLM 在多轮中决定何时、以何种请求向云端 LLM 求助，云端 LLM 只经提示、可以回答或要求澄清；奖励综合答案质量、交互必要性、澄清反馈与隐私泄露惩罚，训练数据来自合成的隐私增强 QA 数据集 PrivQA。 | [paper](https://arxiv.org/abs/2604.17827v2) · 代码未定位 · [evidence](docs/evidence.md#2604-17827) |
@@ -121,6 +123,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-19 · v2 | **HyCo** — [HyCo: Hybrid Drafting for Cost-Efficient Mobile-Cloud Speculative Decoding](https://arxiv.org/abs/2610.21436v2) | 把云端验证模型自带的多 token 预测（MTP）头搬到手机 NPU 上，利用每轮验证后云端返回的状态起草较深的链，再用端侧 SLM 一次前向补充备选分支；可选的 ε 阈值接受规则以放弃严格保持分布为代价换取更长的接受长度。 | [paper](https://arxiv.org/abs/2610.21436v2) · 代码未定位 · [evidence](docs/evidence.md#2610-21436) |
 | 2026-10-06 · v1 | **DySCo** — [DySCo: Dynamic Sharding for Collaborative Edge-Cloud LLM Inference with Depth-Synchronized Batching](https://arxiv.org/abs/2610.08268v1) | 按会话在某一层把同一个 LLM 切成端侧前缀和云端后缀，KV cache 留在各自的 shard 上；不同切分深度的会话先推进到最深的切点，再对共同的后缀层做批处理。 | [paper](https://arxiv.org/abs/2610.08268v1) · [code](https://github.com/Large-scale-Sustainable-Computing-LSC/dysco-artifact) · [evidence](docs/evidence.md#2610-08268) |
 | 2026-09-05 · v2 | **Speculation at a Distance** — [Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off](https://arxiv.org/abs/2606.25091v2) | 分析 RTT 约束下分布式 speculative decoding 的适用区间，强调多租户云端容量。 | [paper](https://arxiv.org/abs/2606.25091v2) · 代码未定位 · [evidence](docs/evidence.md#2606-25091) |
 | 2026-09-02 · v1 | **AceSpec** — [AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference](https://arxiv.org/abs/2609.02514v1) | 预先构造本地恢复分支，用上行索引与下行稀疏分布优化 speculative decoding 通信。 | [paper](https://arxiv.org/abs/2609.02514v1) · 代码未定位 · [evidence](docs/evidence.md#2609-02514) |

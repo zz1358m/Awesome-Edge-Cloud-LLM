@@ -359,11 +359,11 @@ The notes below summarize checked paper pages; they are not independent reproduc
 ## PriCon
 
 - **Version:** 2026-09-26, v1; first submitted 2026-09-26.
-- **Status:** preprint.
+- **Status:** preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=1rBcnLE8ft)).
 - **Exchange:** Mathematical reformulation or cross-domain semantic surrogate of the task / guidance or code for the surrogate, mapped back locally. / 任务的数学改写或跨领域语义替身 / 针对替身任务的指导或代码，由本地映射回原任务。
 - **Evidence:** Read from the PDF because the HTML rendering is truncated; the local-SLM role is played by GPT-4o-mini, DeepSeek-V4-Flash, and a Qwen3 model, with task-intent inference and utility reported per task family against direct consultation, sensitive-value removal, and decoy baselines; no device hardware or latency is measured.
 - **实验边界：** 因 HTML 版本不完整而阅读 PDF；本地 SLM 的角色由 GPT-4o-mini、DeepSeek-V4-Flash 和一个 Qwen3 模型扮演，按任务族报告任务意图推断与效用，对比直接咨询、去除敏感值和诱饵基线；没有设备硬件或延迟测量。
-- **Sources:** [metadata](https://arxiv.org/abs/2609.32642v1), [full text](https://arxiv.org/pdf/2609.32642v1). Checked 2026-10-20.
+- **Sources:** [metadata](https://arxiv.org/abs/2609.32642v1), [full text](https://arxiv.org/pdf/2609.32642v1). Checked 2026-10-25.
 
 <a id="2605-30102"></a>
 
@@ -573,4 +573,37 @@ The notes below summarize checked paper pages; they are not independent reproduc
 - **Evidence:** RLBench manipulation on a physically distributed edge–cloud setup with an emulated 150 ms round-trip delay and ±30 ms jitter; the cloud model is a world model, including a three-layer MLP trained on demonstrations, not a language or VLA model, so transfer to LLM or VLA policies is not shown.
 - **实验边界：** 在物理分布的端云环境中做 RLBench 操作任务，模拟 150 ms 往返时延和 ±30 ms 抖动；云端模型是世界模型（包括在示教数据上训练的三层 MLP），不是语言或 VLA 模型，因此没有展示向 LLM/VLA 策略的迁移。
 - **Sources:** [metadata](https://arxiv.org/abs/2603.19418v1), [full text](https://arxiv.org/html/2603.19418v1). Checked 2026-10-20.
+
+<a id="2610-21436"></a>
+
+## HyCo
+
+- **Version:** 2026-10-19, v2; first submitted 2026-10-15.
+- **Status:** preprint.
+- **Exchange:** Draft token tree (token IDs and parent indices) / accepted tokens, bonus token, and the hidden state, input embedding, and KV entries the device-side MTP head needs. / draft token 树（token ID 与父节点索引）/ 接受的 token、bonus token，以及端侧 MTP 头所需的 hidden state、输入 embedding 和 KV 条目。
+- **Evidence:** Gemma 4 26B-A4B verifier on one RTX PRO 6000 cloud GPU, drafters on a Galaxy S26 Ultra NPU over commercial LTE/5G; single-client runs on Spec-Bench and 32K-token summarization; server GPU time per output token is the main cost metric, not loaded-service capacity or energy; the default ε rule is lossy and is evaluated separately from exact verification.
+- **实验边界：** 验证模型 Gemma 4 26B-A4B 跑在一张 RTX PRO 6000 云端 GPU 上，两个 drafter 跑在 Galaxy S26 Ultra 的 NPU 上，经商用 LTE/5G 连接；Spec-Bench 与 32K token 摘要上的单客户端实验；主要成本指标是每个输出 token 的服务器 GPU 时间，不是满载服务容量或能耗；默认的 ε 规则有损，与严格验证分开报告。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.21436v2), [full text](https://arxiv.org/html/2610.21436v2). Checked 2026-10-25.
+
+<a id="2610-26171"></a>
+
+## CEMA-Router
+
+- **Version:** 2026-10-19, v1; first submitted 2026-10-19.
+- **Status:** preprint.
+- **Exchange:** Whole requests dispatched to one cloud or edge endpoint / responses; the router consumes node profiles, backlog estimates, and profiled quality scores. / 整条请求派发到某个云端或边缘端点 / 返回结果；路由器使用节点画像、积压估计和离线测得的质量分数。
+- **Evidence:** RouterBench traces mapped to a simulated five-tier cloud–edge profile, plus a six-node testbed of server GPUs labelled cloud (A100, V100) and edge (A40, A30) running 1.7B–14B models on GSM8K and MMLU; no phones or embedded boards; API price is zero in the testbed, so the deployed comparison covers quality, energy, and completion time; energy is estimated from power profiles.
+- **实验边界：** 一部分是把 RouterBench 轨迹映射到模拟的五档云边配置上；另一部分是六节点测试床，节点均为服务器 GPU，分别标为云端（A100、V100）和边缘（A40、A30），运行 1.7B–14B 模型，评测 GSM8K 与 MMLU；没有手机或嵌入式板卡；测试床中 API 价格为零，因此部署对比只涉及质量、能耗和完成时间；能耗由功率画像估算。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.26171v1), [full text](https://arxiv.org/html/2610.26171v1). Checked 2026-10-25.
+
+<a id="2610-21463"></a>
+
+## SpecAgent
+
+- **Version:** 2026-10-15, v1; first submitted 2026-10-15.
+- **Status:** preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=FgDfnkBEzf)).
+- **Exchange:** Drafted trajectory segment with real read-only tool observations and a held state-changing action / verdict (accepted prefix length, reason, optional replacement step) or a repair turn. / 带真实只读工具观测、末尾挂起一个状态修改动作的轨迹草稿片段 / 判定（接受的前缀长度、理由、可选的替换步骤）或一轮修复。
+- **Evidence:** Main experiments (τ²-Bench, AutomationBench, VitaBench) run both Qwen3.5-4B and Qwen3.5-397B-A17B on H20 servers, with memory traffic and FLOPs estimated from token counts; the edge–cloud setting is a separate MCP-Atlas run with the weak model on one local RTX 5090 and three cloud API strong models, where API cost and strong output tokens fall but wall time does not.
+- **实验边界：** 主实验（τ²-Bench、AutomationBench、VitaBench）中 Qwen3.5-4B 与 Qwen3.5-397B-A17B 都部署在 H20 服务器上，显存流量和 FLOPs 由 token 数估算；端云设置是单独的 MCP-Atlas 实验，弱模型跑在一张本地 RTX 5090 上，强模型为三个云端 API 模型，API 费用和强模型输出 token 下降，但端到端时间没有下降。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.21463v1), [full text](https://arxiv.org/html/2610.21463v1). Checked 2026-10-25.
 

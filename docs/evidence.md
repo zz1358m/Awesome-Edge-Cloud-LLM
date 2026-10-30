@@ -607,3 +607,25 @@ The notes below summarize checked paper pages; they are not independent reproduc
 - **实验边界：** 主实验（τ²-Bench、AutomationBench、VitaBench）中 Qwen3.5-4B 与 Qwen3.5-397B-A17B 都部署在 H20 服务器上，显存流量和 FLOPs 由 token 数估算；端云设置是单独的 MCP-Atlas 实验，弱模型跑在一张本地 RTX 5090 上，强模型为三个云端 API 模型，API 费用和强模型输出 token 下降，但端到端时间没有下降。
 - **Sources:** [metadata](https://arxiv.org/abs/2610.21463v1), [full text](https://arxiv.org/html/2610.21463v1). Checked 2026-10-25.
 
+<a id="2610-35489"></a>
+
+## TP-JSCC
+
+- **Version:** 2026-10-26, v1; first submitted 2026-10-26.
+- **Status:** preprint.
+- **Exchange:** Question text over a reliable channel plus JSCC-encoded pruned visual tokens over a noisy channel / answer. / 经可靠信道传输的问题文本，加上经噪声信道传输、JSCC 编码后的剪枝视觉 token / 答案。
+- **Evidence:** ScanQA and SQA3D with cdViews view selection and LLaVA-OneVision as the cloud LVLM; the wireless link is a simulated AWGN channel at 0–25 dB SNR, and edge-side cost is reported as GFLOPs (stated to fit a Jetson TX2-class GPU) rather than measured on a device.
+- **实验边界：** 在 ScanQA 与 SQA3D 上评测，使用 cdViews 选视角、LLaVA-OneVision 作为云端 LVLM；无线链路为 0–25 dB SNR 的仿真 AWGN 信道，端侧开销以 GFLOPs 报告（文中称可由 Jetson TX2 级 GPU 承担），未在真实设备上测量。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.35489v1), [full text](https://arxiv.org/html/2610.35489v1). Checked 2026-10-30.
+
+<a id="2610-32079"></a>
+
+## Label-Budgeted Attribute Inference
+
+- **Version:** 2026-10-23, v1; first submitted 2026-10-23.
+- **Status:** preprint.
+- **Exchange:** Hidden-state sequence after the split layer (generation) or a 512-dimensional embedding (face verification) / server-side output. / 拆分层之后的隐状态序列（生成任务）或 512 维嵌入（人脸验证） / 服务器端输出。
+- **Evidence:** LLaVA-1.5-7B and Qwen2.5-VL-3B on FairFace and UTKFace, with an RTX 2080 Ti (11 GiB) emulating the device and a V100 as the server; device latency, memory, and energy are measured per split layer, while transmission time is computed for an assumed link rate.
+- **实验边界：** 在 FairFace 与 UTKFace 上评测 LLaVA-1.5-7B 和 Qwen2.5-VL-3B，以 RTX 2080 Ti（11 GiB）模拟设备、V100 作为服务器；按拆分层测量设备端延迟、显存和能耗，传输时间按假定链路速率计算。
+- **Sources:** [metadata](https://arxiv.org/abs/2610.32079v1), [full text](https://arxiv.org/html/2610.32079v1). Checked 2026-10-30.
+

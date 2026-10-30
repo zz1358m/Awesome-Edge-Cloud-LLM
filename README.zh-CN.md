@@ -4,7 +4,7 @@
 
 收集 **LLM/Agent 端云协同**（含机器人与具身 agent）的论文、代码与数据集，按“优化什么”分类，重点关注端云之间交换什么，以及这些内容如何转化为端侧可复用能力。
 
-**范围截至 2026-10-25 · 55 篇 · 49 篇核心工作 + 6 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
+**范围截至 2026-10-30 · 57 篇 · 51 篇核心工作 + 6 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
 
 多数近期工作为 preprint；录用信息采用作者在 arXiv/项目页的报告。代码仅收录论文关联的作者链接；“未定位”不等于不存在。收益以作者实验为准，真实设备、服务器模拟和无线仿真应分别理解。
 
@@ -87,6 +87,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-23 · v1 | **Label-Budgeted Attribute Inference** — [Label-Budgeted Attribute Inference from Protected Features in Edge-Cloud Split Multimodal LLMs](https://arxiv.org/abs/2610.32079v1) | 在设备—服务器拆分推理的多模态大模型中，测量诚实但好奇的服务器能从收到的中间特征推断出多少年龄、性别和种族信息：用随攻击者带标签受保护样本预算变化的恢复曲线，加上不依赖分类器的依赖性检验；结论是泄露在各拆分深度都存在，在输入、解码器和嵌入层面的保护下也仍可恢复。 | [paper](https://arxiv.org/abs/2610.32079v1) · 代码未定位 · [evidence](docs/evidence.md#2610-32079) |
 | 2026-10-18 · v2 | **PAAC** — [PAAC: Privacy-Aware Agentic Device-Cloud Collaboration](https://arxiv.org/abs/2605.08646v2) | 让规划者与执行者的分工对齐端云信任边界：云端 agent 只在带类型的占位符上规划；端侧 agent 提出需要遮挡的片段并把每步结果浓缩为要点；由确定性注册表完成替换与还原，使动作可直接在端侧执行。 | [paper](https://arxiv.org/abs/2605.08646v2) · 代码未定位 · [evidence](docs/evidence.md#2605-08646) |
 | 2026-10-12 · v1 | **PrivacyGuard** — [PrivacyGuard: Source-Linked Sanitization and Locally Resolvable PII References for Cloud GUI Agents](https://arxiv.org/abs/2610.16778v1) | 云端 GUI agent 的端侧中介：对指令和截图中碎片化或形式变化的 PII 按完整来源范围改写，替换为会话级结构化引用；规划器可以使用这些引用，端侧在执行前于本地解析回真实值。 | [paper](https://arxiv.org/abs/2610.16778v1) · [code](https://github.com/betterzian/PrivacyGuard) · [evidence](docs/evidence.md#2610-16778) |
 | 2026-09-26 · v1 | **PriCon** — [Ask Without Telling: Local SLMs Consult Cloud LLMs Without Revealing Task Intent](https://arxiv.org/abs/2609.32642v1) | 在本地 SLM 咨询云端 LLM 时隐藏任务意图，而不只是敏感数值：SLM 把任务改写成可还原的数学形式，必要时再包装成另一领域的语义替身，云端返回的指导或代码由本地映射回原任务。 | [paper](https://arxiv.org/abs/2609.32642v1) · 代码未定位 · [evidence](docs/evidence.md#2609-32642) |
@@ -134,6 +135,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-10-26 · v1 | **TP-JSCC** — [TP-JSCC: Efficient Token Pruning and Joint Source-Channel Coding for LVLMs-based 3D-VQA in Cloud-Edge Collaboration](https://arxiv.org/abs/2610.35489v1) | 具身智能体先用分割先验引导、兼顾局部与全局语义的方式剪枝多视角视觉 token，再用以 SNR 为条件的 MLP 联合信源信道编码压缩保留的 token，使其能经受噪声无线链路；云端解码后运行 LVLM 完成 3D 视觉问答，问题文本经可靠信道传输。 | [paper](https://arxiv.org/abs/2610.35489v1) · [code](https://github.com/yuanhui0325/TP-JSCC) · [evidence](docs/evidence.md#2610-35489) |
 | 2026-10-02 · v2 | **Communication-Aware Robot Execution** — [Communication-Aware Robot Execution for Cloud Inference under Spatially Heterogeneous Connectivity](https://arxiv.org/abs/2606.31497v2) | 把机器人在哪里发出下一次云端请求当作运动决策：估计一次请求—响应所需的时间窗，借助通信地图在执行当前云端生成的动作原语的同时驶向信号良好的请求点。 | [paper](https://arxiv.org/abs/2606.31497v2) · 代码未定位 · [evidence](docs/evidence.md#2606-31497) |
 | 2026-09-21 · v1 | **Cloud, Edge, or Split?** — [Cloud, Edge, or Split? Profiling Onboard and Split Vision-Language Model Deployment for Drone AI](https://arxiv.org/abs/2609.25415v1) | 对 SmolVLM-256M 在无人机巡检中的全机载、全云端和拆分三种部署做性能剖析，拆分方案上传投影后的视觉 token 而非 JPEG 图像；结论是最优部署取决于网络条件和图像分辨率。 | [paper](https://arxiv.org/abs/2609.25415v1) · 代码未定位 · [evidence](docs/evidence.md#2609-25415) |
 | 2026-09-16 · v3 | **CloudEdgeVLA** — [Latency-Tolerant Cloud-Edge Collaborative Vision-Language-Action Models via Emergent Representational Specialization](https://arxiv.org/abs/2608.00569v3) | 把 VLA 策略拆开：云端 VLA 把可能延迟的观测编码成变化缓慢的任务特征，端侧轻量动作头把最近收到的特征与当前本地视觉融合；训练时用新鲜帧与随机延迟帧配对同一动作目标，机器人从不阻塞等待云端。 | [paper](https://arxiv.org/abs/2608.00569v3) · 代码未定位 · [evidence](docs/evidence.md#2608-00569) |

@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-25",
+  "cutoff": "2026-10-30",
   "papers": [
     {
       "name": "Co-Skill",
@@ -1788,6 +1788,69 @@
         "https://openreview.net/forum?id=FgDfnkBEzf"
       ],
       "checked_on": "2026-10-25"
+    },
+    {
+      "name": "TP-JSCC",
+      "arxiv_id": "2610.35489",
+      "version": 1,
+      "title": "TP-JSCC: Efficient Token Pruning and Joint Source-Channel Coding for LVLMs-based 3D-VQA in Cloud-Edge Collaboration",
+      "authors": [
+        "Li, Zhengxin",
+        "Tian, Chongzhen",
+        "Yuan, Hui",
+        "Liu, Hao",
+        "Kwong, Sam"
+      ],
+      "first_submitted": "2026-10-26",
+      "version_date": "2026-10-26",
+      "category": "embodied",
+      "scope": "core",
+      "summary": "An embodied agent prunes multi-view visual tokens with segmentation-guided local and global semantic selection, then compresses the kept tokens with an SNR-conditioned MLP joint source-channel coder so they survive a noisy wireless link; the cloud decodes them and runs the LVLM for 3D visual question answering, while the question text goes over a reliable channel.",
+      "summary_zh": "具身智能体先用分割先验引导、兼顾局部与全局语义的方式剪枝多视角视觉 token，再用以 SNR 为条件的 MLP 联合信源信道编码压缩保留的 token，使其能经受噪声无线链路；云端解码后运行 LVLM 完成 3D 视觉问答，问题文本经可靠信道传输。",
+      "exchange": "Question text over a reliable channel plus JSCC-encoded pruned visual tokens over a noisy channel / answer",
+      "exchange_zh": "经可靠信道传输的问题文本，加上经噪声信道传输、JSCC 编码后的剪枝视觉 token / 答案",
+      "evidence": "ScanQA and SQA3D with cdViews view selection and LLaVA-OneVision as the cloud LVLM; the wireless link is a simulated AWGN channel at 0–25 dB SNR, and edge-side cost is reported as GFLOPs (stated to fit a Jetson TX2-class GPU) rather than measured on a device.",
+      "evidence_zh": "在 ScanQA 与 SQA3D 上评测，使用 cdViews 选视角、LLaVA-OneVision 作为云端 LVLM；无线链路为 0–25 dB SNR 的仿真 AWGN 信道，端侧开销以 GFLOPs 报告（文中称可由 Jetson TX2 级 GPU 承担），未在真实设备上测量。",
+      "status": "preprint",
+      "code_url": "https://github.com/yuanhui0325/TP-JSCC",
+      "code_status": "author-linked",
+      "paper_url": "https://arxiv.org/abs/2610.35489v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.35489v1",
+        "https://arxiv.org/html/2610.35489v1"
+      ],
+      "checked_on": "2026-10-30"
+    },
+    {
+      "name": "Label-Budgeted Attribute Inference",
+      "arxiv_id": "2610.32079",
+      "version": 1,
+      "title": "Label-Budgeted Attribute Inference from Protected Features in Edge-Cloud Split Multimodal LLMs",
+      "authors": [
+        "Yao, Junguang",
+        "Hua, Peichun",
+        "Zhang, Hanxiu",
+        "Zheng, Yue"
+      ],
+      "first_submitted": "2026-10-23",
+      "version_date": "2026-10-23",
+      "category": "context",
+      "scope": "core",
+      "summary": "Measures how much an honest-but-curious server can infer age, gender, and race from the intermediate features it receives in device–server split MLLM inference, using recovery curves over the attacker's budget of labeled protected samples plus a classifier-free dependence test, and finds that leakage persists across split depths and under input-, decoder-, and embedding-level protections.",
+      "summary_zh": "在设备—服务器拆分推理的多模态大模型中，测量诚实但好奇的服务器能从收到的中间特征推断出多少年龄、性别和种族信息：用随攻击者带标签受保护样本预算变化的恢复曲线，加上不依赖分类器的依赖性检验；结论是泄露在各拆分深度都存在，在输入、解码器和嵌入层面的保护下也仍可恢复。",
+      "exchange": "Hidden-state sequence after the split layer (generation) or a 512-dimensional embedding (face verification) / server-side output",
+      "exchange_zh": "拆分层之后的隐状态序列（生成任务）或 512 维嵌入（人脸验证） / 服务器端输出",
+      "evidence": "LLaVA-1.5-7B and Qwen2.5-VL-3B on FairFace and UTKFace, with an RTX 2080 Ti (11 GiB) emulating the device and a V100 as the server; device latency, memory, and energy are measured per split layer, while transmission time is computed for an assumed link rate.",
+      "evidence_zh": "在 FairFace 与 UTKFace 上评测 LLaVA-1.5-7B 和 Qwen2.5-VL-3B，以 RTX 2080 Ti（11 GiB）模拟设备、V100 作为服务器；按拆分层测量设备端延迟、显存和能耗，传输时间按假定链路速率计算。",
+      "status": "preprint",
+      "code_url": null,
+      "code_status": "not located in checked paper pages",
+      "paper_url": "https://arxiv.org/abs/2610.32079v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.32079v1",
+        "https://arxiv.org/html/2610.32079v1"
+      ],
+      "checked_on": "2026-10-30"
     }
   ]
 }

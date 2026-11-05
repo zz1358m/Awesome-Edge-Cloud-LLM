@@ -629,3 +629,14 @@ The notes below summarize checked paper pages; they are not independent reproduc
 - **实验边界：** 在 FairFace 与 UTKFace 上评测 LLaVA-1.5-7B 和 Qwen2.5-VL-3B，以 RTX 2080 Ti（11 GiB）模拟设备、V100 作为服务器；按拆分层测量设备端延迟、显存和能耗，传输时间按假定链路速率计算。
 - **Sources:** [metadata](https://arxiv.org/abs/2610.32079v1), [full text](https://arxiv.org/html/2610.32079v1). Checked 2026-10-30.
 
+<a id="2611-04579"></a>
+
+## FreeForm Harness
+
+- **Version:** 2026-11-03, v1; first submitted 2026-11-03.
+- **Status:** preprint.
+- **Exchange:** Commissioned authoring task and publish requests / candidate extension packages, signature index, and cloud test reports. / 委托生成任务和发布请求 / 候选扩展包、签名索引和云端测试报告。
+- **Evidence:** Android prototype on a Xiaomi 14 Pro with live cloud services; a 50-request reactive-mobile benchmark against weakened variants and a trigger–action automation baseline, plus on-device startup, install, trigger latency, and eight-hour battery measurements. The cloud does not run the production harness, and the coding model itself is not benchmarked, so this is an architecture for cloud-authored extensions rather than an edge–cloud inference method.
+- **实验边界：** 在 Xiaomi 14 Pro 上的 Android 原型，配合实际运行的云端服务；用 50 个日常移动请求的基准对比削弱变体和触发—动作式自动化基线，并在端侧测量冷启动、安装、触发延迟和 8 小时耗电。云端不运行生产 harness，论文也不评测编码模型本身，因此它是由云端生成扩展的架构，而不是端云协同推理方法。
+- **Sources:** [metadata](https://arxiv.org/abs/2611.04579v1), [full text](https://arxiv.org/html/2611.04579v1). Checked 2026-11-05.
+

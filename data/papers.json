@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-30",
+  "cutoff": "2026-11-05",
   "papers": [
     {
       "name": "Co-Skill",
@@ -1851,6 +1851,37 @@
         "https://arxiv.org/html/2610.32079v1"
       ],
       "checked_on": "2026-10-30"
+    },
+    {
+      "name": "FreeForm Harness",
+      "arxiv_id": "2611.04579",
+      "version": 1,
+      "title": "FreeForm Harness: A Mobile-Native Agent Harness for Open and Composable Extensions",
+      "authors": [
+        "Zhang, Bo",
+        "Zhang, Pengbo",
+        "Jiao, Jiaxin",
+        "Liu, Yue"
+      ],
+      "first_submitted": "2026-11-03",
+      "version_date": "2026-11-03",
+      "category": "adjacent",
+      "scope": "adjacent",
+      "summary": "A mobile agent harness with a frozen on-device base and composable plugin extensions; when no published extension matches a request, a cloud coding agent authors a candidate that is checked against the same contract, with native packages also run in a cloud test base, while installation and final admission stay on the device.",
+      "summary_zh": "面向手机的 agent harness：端侧是冻结的内核加可组合的插件扩展；没有现成扩展能满足请求时，由云端编码 agent 生成候选扩展，按同一契约校验（原生包还要先在云端测试环境里跑一遍），安装和最终准入始终在端侧决定。",
+      "exchange": "Commissioned authoring task and publish requests / candidate extension packages, signature index, and cloud test reports",
+      "exchange_zh": "委托生成任务和发布请求 / 候选扩展包、签名索引和云端测试报告",
+      "evidence": "Android prototype on a Xiaomi 14 Pro with live cloud services; a 50-request reactive-mobile benchmark against weakened variants and a trigger–action automation baseline, plus on-device startup, install, trigger latency, and eight-hour battery measurements. The cloud does not run the production harness, and the coding model itself is not benchmarked, so this is an architecture for cloud-authored extensions rather than an edge–cloud inference method.",
+      "evidence_zh": "在 Xiaomi 14 Pro 上的 Android 原型，配合实际运行的云端服务；用 50 个日常移动请求的基准对比削弱变体和触发—动作式自动化基线，并在端侧测量冷启动、安装、触发延迟和 8 小时耗电。云端不运行生产 harness，论文也不评测编码模型本身，因此它是由云端生成扩展的架构，而不是端云协同推理方法。",
+      "status": "preprint",
+      "code_url": null,
+      "code_status": "not located in checked paper pages",
+      "paper_url": "https://arxiv.org/abs/2611.04579v1",
+      "source_urls": [
+        "https://arxiv.org/abs/2611.04579v1",
+        "https://arxiv.org/html/2611.04579v1"
+      ],
+      "checked_on": "2026-11-05"
     }
   ]
 }

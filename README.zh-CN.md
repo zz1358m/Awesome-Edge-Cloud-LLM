@@ -4,7 +4,7 @@
 
 收集 **LLM/Agent 端云协同**（含机器人与具身 agent）的论文、代码与数据集，按“优化什么”分类，重点关注端云之间交换什么，以及这些内容如何转化为端侧可复用能力。
 
-**范围截至 2026-10-30 · 57 篇 · 51 篇核心工作 + 6 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
+**范围截至 2026-11-05 · 58 篇 · 51 篇核心工作 + 7 篇邻近工作。** 日期为所链接 arXiv 版本日期，首次提交日期另存于数据文件。本文献清单不是穷尽性综述，也不是统一性能排行榜。
 
 多数近期工作为 preprint；录用信息采用作者在 arXiv/项目页的报告。代码仅收录论文关联的作者链接；“未定位”不等于不存在。收益以作者实验为准，真实设备、服务器模拟和无线仿真应分别理解。
 
@@ -154,6 +154,7 @@
 
 | 版本日期 | 工作 | 贡献 | 资源 |
 | --- | --- | --- | --- |
+| 2026-11-03 · v1 | **FreeForm Harness** — [FreeForm Harness: A Mobile-Native Agent Harness for Open and Composable Extensions](https://arxiv.org/abs/2611.04579v1) | 面向手机的 agent harness：端侧是冻结的内核加可组合的插件扩展；没有现成扩展能满足请求时，由云端编码 agent 生成候选扩展，按同一契约校验（原生包还要先在云端测试环境里跑一遍），安装和最终准入始终在端侧决定。 | [paper](https://arxiv.org/abs/2611.04579v1) · 代码未定位 · [evidence](docs/evidence.md#2611-04579) |
 | 2026-10-06 · v1 | **HintKD** — [HintKD: Hint Knowledge Distillation for Bandwidth-Constrained Cloud-Edge Inference](https://arxiv.org/abs/2610.08412v1) | 将 teacher 指导编码为 codebook 索引，由 student 的 FiLM adapter 解释。 | [paper](https://arxiv.org/abs/2610.08412v1) · 代码未定位 · [evidence](docs/evidence.md#2610-08412) |
 | 2026-07-21 · v1 | **Broken Gates** — [Broken Gates: Re-evaluating Web Bot Defenses in the Age of LLM Agents](https://arxiv.org/abs/2607.18659v1) | 测量商业验证码破解服务和六个 LLM 浏览器 agent 在云端托管、自托管、AI 浏览器与浏览器扩展四种部署下对抗 hCaptcha、reCAPTCHA v2/v3 和 Turnstile 的表现；只有浏览器扩展形态的 agent 能稳定以可接受的信任分通过 reCAPTCHA v3，作者把差异归因于执行环境的真实性而非行为。 | [paper](https://arxiv.org/abs/2607.18659v1) · 代码未定位 · [evidence](docs/evidence.md#2607-18659) |
 | 2026-06-29 · v1 | **Unmasking Web Agents** — [On the Internet, Nobody Knows You're an LLM Bot: Unmasking Web Agents with Multi-Layer Fingerprinting](https://arxiv.org/abs/2606.30119v1) | 部署受 robots.txt、验证码、工作量证明和 Cloudflare 保护的蜜罐网站，用网络、HTTP 和浏览器三层指纹表明，六个云端或本地运行的 LLM Web agent 都能与人类及彼此区分，数据中心 IP 仍是重要信号。 | [paper](https://arxiv.org/abs/2606.30119v1) · 代码未定位 · [evidence](docs/evidence.md#2606-30119) |

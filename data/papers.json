@@ -598,7 +598,7 @@
     {
       "name": "EC2-Bench",
       "arxiv_id": "2610.17816",
-      "version": 1,
+      "version": 2,
       "title": "Empowering Edge Agents: A Systematic Analysis of Edge-Cloud Collaboration in LLM Agent Execution",
       "authors": [
         "Huang, Pengcheng",
@@ -611,11 +611,11 @@
         "Sun, Maosong"
       ],
       "first_submitted": "2026-10-13",
-      "version_date": "2026-10-13",
+      "version_date": "2026-10-18",
       "category": "routing",
       "scope": "core",
-      "summary": "Builds EC2-Bench, 128 executable digital-workspace agent tasks scored on task completion, cloud cost and edge FLOPs, and the share of annotated sensitive items visible to the cloud, and uses it to compare query routing, per-step routing, edge-controlled delegation, and edge-controlled advisory.",
-      "summary_zh": "构建 EC2-Bench：128 个可执行的数字工作区 agent 任务，从任务完成度、云端费用与端侧 FLOPs、标注的敏感信息被云端看到的比例三方面打分，并用它比较 query 路由、逐步路由、端侧主导的委托和端侧主导的咨询四种协同方式。",
+      "summary": "Compares query routing, per-step routing, edge-controlled delegation and edge-controlled advisory across 128 executable digital-workspace tasks. Task performance, cloud cost and estimated edge FLOPs are reported alongside privacy exposure on the 100 tasks with annotated sensitive information.",
+      "summary_zh": "在 128 个可执行的数字工作区任务上比较整任务路由、逐步路由、端侧主导的委托与咨询。除任务完成度、云端费用和估算的端侧 FLOPs 外，在含敏感信息标注的 100 个任务上衡量云端隐私暴露。",
       "exchange": "Task instruction and execution history visible to the cloud / cloud-generated actions (delegation) or plans and suggestions (advisory)",
       "exchange_zh": "云端可见的任务指令与执行历史 / 云端生成的动作（委托）或计划与建议（咨询）",
       "evidence": "All configurations run in the OpenClaw runtime with Qwen3.5-2B/9B as current edge models, Qwen3.5-27B and Qwen3.7-Plus as proxies for stronger future edge models, and GLM-5.3 as the main cloud model; edge cost is estimated in FLOPs rather than measured on devices, and privacy exposure is judged by an LLM checked against 200 human labels.",
@@ -623,13 +623,14 @@
       "status": "preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=xUfOKMx2hz))",
       "code_url": "https://github.com/OpenBMB/EC2-Bench",
       "code_status": "author-linked",
-      "paper_url": "https://arxiv.org/abs/2610.17816v1",
+      "paper_url": "https://arxiv.org/abs/2610.17816v2",
       "source_urls": [
-        "https://arxiv.org/abs/2610.17816v1",
-        "https://arxiv.org/html/2610.17816v1",
-        "https://openreview.net/forum?id=xUfOKMx2hz"
+        "https://arxiv.org/abs/2610.17816v2",
+        "https://arxiv.org/html/2610.17816v2",
+        "https://openreview.net/forum?id=xUfOKMx2hz",
+        "https://huggingface.co/datasets/chengpingan/EC2-Bench"
       ],
-      "checked_on": "2026-10-15"
+      "checked_on": "2026-11-21"
     },
     {
       "name": "Local-First Intelligence",

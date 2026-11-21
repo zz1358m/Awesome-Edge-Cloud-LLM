@@ -204,12 +204,12 @@ The notes below summarize checked paper pages; they are not independent reproduc
 
 ## EC2-Bench
 
-- **Version:** 2026-10-13, v1; first submitted 2026-10-13.
+- **Version:** 2026-10-18, v2; first submitted 2026-10-13.
 - **Status:** preprint; ICLR 2027 submission under review ([OpenReview](https://openreview.net/forum?id=xUfOKMx2hz)).
 - **Exchange:** Task instruction and execution history visible to the cloud / cloud-generated actions (delegation) or plans and suggestions (advisory). / 云端可见的任务指令与执行历史 / 云端生成的动作（委托）或计划与建议（咨询）。
 - **Evidence:** All configurations run in the OpenClaw runtime with Qwen3.5-2B/9B as current edge models, Qwen3.5-27B and Qwen3.7-Plus as proxies for stronger future edge models, and GLM-5.3 as the main cloud model; edge cost is estimated in FLOPs rather than measured on devices, and privacy exposure is judged by an LLM checked against 200 human labels.
 - **实验边界：** 全部配置在 OpenClaw 运行时中执行，端侧用 Qwen3.5-2B/9B 代表当前模型、Qwen3.5-27B 与 Qwen3.7-Plus 作为未来更强端侧模型的代理，云端主要用 GLM-5.3；端侧开销以 FLOPs 估算而非设备实测，隐私暴露由 LLM 判定，并用 200 条人工标注做了核对。
-- **Sources:** [metadata](https://arxiv.org/abs/2610.17816v1), [full text](https://arxiv.org/html/2610.17816v1). Checked 2026-10-15.
+- **Sources:** [metadata](https://arxiv.org/abs/2610.17816v2), [full text](https://arxiv.org/html/2610.17816v2). Checked 2026-11-21.
 
 <a id="2604-17827"></a>
 
